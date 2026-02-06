@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسابقة قرية التلاوة القرآنية - مركز الطود</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --quran-green: #1a5f7a;
+            --golden: #f9ed69;
+            --light-blue: #159895;
+            --dark-blue: #2d4059;
+            --white: #ffffff;
+            --light-bg: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family:  Tajawal ,  Amiri , sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* الهيدر الرئيسي */
+        .main-header {
+            background: linear-gradient(135deg, var(--quran-green) 0%, var(--dark-blue) 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-header::before {
+            content: "﷽";
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 4rem;
+            opacity: 0.15;
+            font-family:  Amiri , serif;
+        }
+        
+        .main-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--golden);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .main-header .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .sponsor-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            border: 2px solid var(--golden);
+        }
+        
+        /* التنقل */
+        .main-nav {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background: var(--light-bg);
+            border: none;
+            border-radius: 30px;
+            font-family:  Tajawal , sans-serif;
+            font-weight: bold;
+            color: var(--dark-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--quran-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.3);
+        }
+        
+        /* المحتوى الرئيسي */
+        .content-section {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            color: var(--quran-green);
+            border-bottom: 3px solid var(--golden);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* بطاقات */
+        .card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 5px solid var(--light-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateX(-10px);
+        }
+        
+        .card.important {
+            background: linear-gradient(135deg, #fff3e0, #ffecb3);
+            border-right-color: #ff9800;
+        }
+        
+        .card.prize {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-right-color: #4caf50;
+        }
+        
+        .card-title {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* الجداول */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: linear-gradient(to right, var(--quran-green), var(--light-blue));
+            color: white;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tbody tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .village-badge {
+            background: var(--light-blue);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        /* اليوميات */
+        .day-announcement {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-right: 5px solid var(--light-blue);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .day-announcement::before {
+            content: "📢";
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 2rem;
+        }
+        
+        /* الفوتر */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a237e 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+        
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+            font-size: 2rem;
+        }
+        
+        .contact-icons a {
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-icons a:hover {
+            color: var(--golden);
+            transform: scale(1.2);
+        }
+        
+        /* المتسابقين */
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-family:  Tajawal , sans-serif;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: var(--quran-green);
+            box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.1);
+        }
+        
+        /* توجيهات صوتية */
+        .voice-guide {
+            background: linear-gradient(135deg, #f0f7ff, #e6f3ff);
+            border: 2px dashed var(--quran-green);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        /* تعديلات للجوال */
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2rem;
+            }
+            
+            .main-header .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 10px 5px;
+            }
+        }
+        
+        /* تحسينات عامة */
+        .highlight {
+            background: var(--golden);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-right: 4px solid #c62828;
+        }
+        
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-right: 4px solid #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر الرئيسي -->
+        <header class="main-header">
+            <h1><i class="fas fa-quran"></i> مسابقة قرية التلاوة القرآنية</h1>
+            <div class="tagline">مزامير القرآن الكريم يغردون في المهيدات - مركز الطود</div>
+            
+            <div class="sponsor-badge">
+                <div><i class="fas fa-handshake"></i> تحت إشراف: <strong>جمعية المحافظة على القرآن الكريم بالمهيدات</strong></div>
+                <div><i class="fas fa-crown"></i> برعاية: <strong>الدمياطي للأثاث الراقي</strong></div>
+            </div>
+            
+            <div style="margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <div style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px;">
+                    <i class="fas fa-users"></i> <strong>180+</strong> متسابق
+                </div>
+                <div style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px;">
+                    <i class="fas fa-map-marker-alt"></i> <strong>20+</strong> قرية
+                </div>
+                <div style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 25px;">
+                    <i class="fas fa-calendar-alt"></i> <strong>6</strong> أيام مسابقة
+                </div>
+            </div>
+        </header>
+
+        <!-- شريط التنقل -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-target="announcements">
+                <i class="fas fa-bullhorn"></i> الإعلانات اليومية
+            </button>
+            <button class="nav-btn" data-target="contestants">
+                <i class="fas fa-list-ol"></i> قوائم المتسابقين
+            </button>
+            <button class="nav-btn" data-target="schedule">
+                <i class="fas fa-calendar"></i> جدول المسابقة
+            </button>
+            <button class="nav-btn" data-target="jury">
+                <i class="fas fa-user-tie"></i> لجنة التحكيم
+            </button>
+            <button class="nav-btn" data-target="guidance">
+                <i class="fas fa-music"></i> التوجيهات الصوتية
+            </button>
+            <button class="nav-btn" data-target="info">
+                <i class="fas fa-info-circle"></i> معلومات عامة
+            </button>
+        </nav>
+
+        <!-- قسم الإعلانات اليومية -->
+        <section id="announcements" class="content-section active">
+            <h2 class="section-title"><i class="fas fa-bullhorn"></i> الإعلانات اليومية</h2>
+            
+            <div class="day-announcement">
+                <h3>🚨 إسدال الستار عن التصفية الأولية</h3>
+                <p><strong>اليوم الأخير - الجمعة 13 فبراير</strong></p>
+                <p>ومعادنا مع المجموعة السادسة والأخيرة (المستوى الثاني تحت 15 عام) في ختام أيام التصفيات الأولية.</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>المكان:</strong> مسجد نور الإسلام، بعزبة غزالي، جوار مدرسة السادات الابتدائية</p>
+                <p><i class="fas fa-clock"></i> <strong>الموعد:</strong> عصر يوم الجمعة الموافق 13 فبراير</p>
+                <div class="warning">
+                    ⚠️ تذكير: الالتزام بموعد الحضور في المسجد
+                </div>
+            </div>
+            
+            <div class="card prize">
+                <h3 class="card-title"><i class="fas fa-gift"></i> بشرى عظيمة للمسابقة</h3>
+                <p><strong>جائزة عمرة ستُمنح لصاحب المركز الأول</strong></p>
+                <p>مقدمة من (الدمياطي للأثاث الحديث) وصاحبه الأستاذ عرفة أحمد بكري 🤍</p>
+            </div>
+            
+            <div class="card important">
+                <h3 class="card-title"><i class="fas fa-star"></i> انتظرونا في رمضان 💖</h3>
+                <p>مزامير التلاوة من مركز الطود في ضيافتنا 🤝🌺</p>
+                <p>المرحلة النهائية ستقام خلال شهر رمضان المبارك للمتأهلين من التصفيات الأولية</p>
+            </div>
+        </section>
+
+        <!-- قسم المتسابقين -->
+        <section id="contestants" class="content-section">
+            <h2 class="section-title"><i class="fas fa-users"></i> قوائم المتسابقين</h2>
+            
+            <input type="text" class="search-box" placeholder="🔍 ابحث عن متسابق بالاسم أو القرية...">
+            
+            <!-- اليوم الأول -->
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-calendar-day"></i> اليوم الأول - السبت 7 فبراير</h3>
+                <p><strong>المستوى الأول (فوق 15 عام)</strong> - مسجد جمال عبد الناصر (الكيلانية)</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم المتسابق</th>
+                                <th>القرية</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>محمود ناصر محمد</td><td><span class="village-badge">نجع الوحدة</span></td></tr>
+                            <tr><td>2</td><td>يوسف محمود خليل</td><td><span class="village-badge">نجع علوان</span></td></tr>
+                            <tr><td>3</td><td>محمود محمد خير</td><td><span class="village-badge">نجع أبو عربي</span></td></tr>
+                            <tr><td>4</td><td>عمار أحمد النجار</td><td><span class="village-badge">نجع الوحدة (الشيخ علي)</span></td></tr>
+                            <tr><td>5</td><td>حسن إبراهيم حسن خير</td><td><span class="village-badge">نجع علوان</span></td></tr>
+                            <!-- يمكن إضافة باقي الأسماء -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- اليوم الثاني -->
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-calendar-day"></i> اليوم الثاني - الأحد 8 فبراير</h3>
+                <p><strong>المستوى الثاني (تحت 15 عام)</strong> - مسجد أحمد الحريف (الحرايفة)</p>
+                <!-- جدول اليوم الثاني -->
+            </div>
+            
+            <!-- باقي الأيام يمكن إضافتها بنفس الطريقة -->
+        </section>
+
+        <!-- جدول المسابقة -->
+        <section id="schedule" class="content-section">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> جدول المسابقة الكامل</h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>اليوم</th>
+                            <th>التاريخ</th>
+                            <th>المستوى</th>
+                            <th>المكان</th>
+                            <th>الوقت</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>السبت</td>
+                            <td>7 فبراير</td>
+                            <td>المستوى الأول (فوق 15 عام)</td>
+                            <td>مسجد جمال عبد الناصر (الكيلانية)</td>
+                            <td>عصراً</td>
+                        </tr>
+                        <tr>
+                            <td>الأحد</td>
+                            <td>8 فبراير</td>
+                            <td>المستوى الثاني (تحت 15 عام)</td>
+                            <td>مسجد أحمد الحريف (الحرايفة)</td>
+                            <td>عصراً</td>
+                        </tr>
+                        <tr>
+                            <td>الاثنين</td>
+                            <td>9 فبراير</td>
+                            <td>المستوى الثاني (تحت 15 عام)</td>
+                            <td>مسجد الشيخ أحمد عبادي (القضيات)</td>
+                            <td>عصراً</td>
+                        </tr>
+                        <tr>
+                            <td>الثلاثاء</td>
+                            <td>10 فبراير</td>
+                            <td>المستوى الثاني (تحت 15 عام)</td>
+                            <td>مسجد الشيخ محمد البستاني (البستان)</td>
+                            <td>عصراً</td>
+                        </tr>
+                        <tr>
+                            <td>الأربعاء</td>
+                            <td>11 فبراير</td>
+                            <td>المستوى الأول (فوق 15 عام)</td>
+                            <td>مسجد سيدنا عمر بن الخطاب (منطقة آل حمد)</td>
+                            <td>عصراً</td>
+                        </tr>
+                        <tr>
+                            <td>الجمعة</td>
+                            <td>13 فبراير</td>
+                            <td>المستوى الثاني (تحت 10 عام)</td>
+                            <td>مسجد نور الإسلام (عزبة غزالي)</td>
+                            <td>عصراً</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="success">
+                <i class="fas fa-check-circle"></i> <strong>قفل باب التسجيل:</strong> الخميس 5 فبراير
+            </div>
+        </section>
+
+        <!-- لجنة التحكيم -->
+        <section id="jury" class="content-section">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> لجنة التحكيم</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-trophy"></i> لجنة التحكيم للمرحلة النهائية (رمضان)</h3>
+                <p>أيها المتسابقون؛ هل أنتم مستعدون؟ 😎 إليكم السادة أعضاء لجنة التحكيم:</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: #fff3e0; padding: 20px; border-radius: 10px; border-right: 4px solid #ff9800;">
+                        <h4 style="color: #e65100;"><i class="fas fa-crown"></i> الرئيس</h4>
+                        <p><strong>فضيلة الشيخ/ محمد يوسف الجلهومي</strong></p>
+                    </div>
+                    
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-right: 4px solid #4caf50;">
+                        <h4 style="color: #2e7d32;"><i class="fas fa-user-check"></i> العضو الأول</h4>
+                        <p><strong>فضيلة الشيخ/ شعيب عبد الشفوق عشري</strong></p>
+                    </div>
+                    
+                    <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; border-right: 4px solid #9c27b0;">
+                        <h4 style="color: #7b1fa2;"><i class="fas fa-user-check"></i> العضو الثاني</h4>
+                        <p><strong>فضيلة الشيخ/ محمود يوسف محمد</strong></p>
+                    </div>
+                    
+                    <div style="background: #e0f2f1; padding: 20px; border-radius: 10px; border-right: 4px solid #009688;">
+                        <h4 style="color: #00695c;"><i class="fas fa-user-md"></i> العضو الثالث</h4>
+                        <p><strong>فضيلة الدكتور/ أحمد جابر موسى</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-star"></i> معايير التقييم</h3>
+                <ol style="padding-right: 20px;">
+                    <li>صحة القراءة وأحكام التجويد (40%)</li>
+                    <li>جودة الصوت والأداء (30%)</li>
+                    <li>التنويع المناسب للمعنى (20%)</li>
+                    <li>الثبات والثقة (10%)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- التوجيهات الصوتية -->
+        <section id="guidance" class="content-section">
+            <h2 class="section-title"><i class="fas fa-music"></i> التوجيهات الصوتية</h2>
+            
+            <div class="voice-guide">
+                <h3><i class="fas fa-lightbulb"></i> اقتراح مهم للمتسابقين</h3>
+                <p>نقترح مشاركة بعض المقاطع القرآنية للقراء الكبار مع الإشارة إلى:</p>
+                <ul style="padding-right: 20px; margin: 15px 0;">
+                    <li>نوع الطبقة الصوتية</li>
+                    <li>نوع المقام الصوتي المستخدم</li>
+                    <li>كيفية توظيف المقام مع أحكام التجويد</li>
+                </ul>
+                
+                <div class="warning">
+                    ⚠️ <strong>ملاحظة هامة:</strong> القراء الكبار عندهم التنويع في الأداء دون الإخلال بضوابط القراءة، بل طوعوا الأداء الصوتي بما يناسب أحكام التلاوة
+                </div>
+                
+                <div style="background: #fff9e6; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h4><i class="fas fa-play-circle"></i> مثال تطبيقي</h4>
+                    <p><strong>الدكتور أحمد نعينع</strong> قرأ هذه الآية بمقام <span class="highlight">النهاوند</span> مراعياً الأحكام وضوابط الأداء</p>
+                    <p>سورة النبأ - الآيات 1-5</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-graduation-cap"></i> أهداف المسابقة</h3>
+                <ol style="padding-right: 20px;">
+                    <li>تربية جيل جديد على أصول "المدرسة القرآنية المصرية الأصيلة"</li>
+                    <li>تخريج أئمة متمكنين يقفوا في المحراب</li>
+                    <li>التأهيل للعالمية والمشاركة في برنامج (دولة التلاوة المصرية)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- معلومات عامة -->
+        <section id="info" class="content-section">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> معلومات عامة</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-bullseye"></i> أهداف قرية التلاوة</h3>
+                <p>"الحمد لله، الإقبال على مسابقة "قرية التلاوة" مشرّف، وتخطينا المائة متسابق بكتير من كل نجوع وقرى مركز الطود"</p>
+                
+                <div style="margin-top: 15px;">
+                    <p><strong>🎯 التلاوة المصرية:</strong> جزءٌ أصيل من هُويتنا وتراثنا الخالد؛ فنرجو من المتسابقين الالتزام بضوابط التلاوة المصرية العظيمة، وعدم تقليد غيرها.</p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                        <i class="fas fa-quote-right"></i> (اجعل نفسك امتدادًا لهذه المدرسة المصرية الرائعة)
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-microphone-alt"></i> تذكير للمتسابقين</h3>
+                <ul style="padding-right: 20px;">
+                    <li>الالتزام بموعد الحضور في المسجد (قبل آذان العصر)</li>
+                    <li>المسابقة تعتمد على اختيارك للآيات (من حفظك)</li>
+                    <li>التركيز على أحكام التجويد وجمال الصوت والأداء</li>
+                    <li>إحضار نسخة من القرآن الكريم</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-thank-you"></i> الشكر والتقدير</h3>
+                <p>شكر خاص للأستاذ الإعلامي الكبير <strong>ناصر غزالي</strong></p>
+                <p>لتفضله بإذاعة أمسيات "قرية التلاوة" عبر برنامجه (نبض الجنوب)، ولحرصه على إنجاح المسابقة</p>
+                <p><em>تصميم: الجنيرال سيد المصري</em></p>
+            </div>
+        </section>
+
+        <!-- الفوتر -->
+        <footer class="footer">
+            <h3>مسابقة قرية التلاوة القرآنية</h3>
+            <p>مركز الطود - رمضان ١٤٤٧هـ</p>
+            
+            <div class="contact-icons">
+                <a href="#" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p style="margin: 20px 0; opacity: 0.9;">
+                <i class="fas fa-map-marker-alt"></i> جمعية المحافظة على القرآن الكريم - فرع المهيدات
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 25px;">
+                <h4><i class="fas fa-hands-helping"></i> الراعي الرسمي</h4>
+                <p style="font-size: 1.3rem; color: var(--golden); margin: 10px 0;">الدمياطي للأثاث الراقي</p>
+            </div>
+            
+            <p style="margin-top: 30px; font-style: italic; opacity: 0.8;">
+                "وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا" - سورة المزمل: ٤
+            </p>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                © 2026 مسابقة قرية التلاوة - جميع الحقوق محفوظة
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // نظام التنقل بين الأقسام
+        document.querySelectorAll( .nav-btn ).forEach(button => {
+            button.addEventListener( click , function() {
+                // إزالة النشط من جميع الأزرار
+                document.querySelectorAll( .nav-btn ).forEach(btn => {
+                    btn.classList.remove( active );
+                });
+                
+                // إخفاء جميع الأقسام
+                document.querySelectorAll( .content-section ).forEach(section => {
+                    section.classList.remove( active );
+                });
+                
+                // تفعيل الزر الحالي
+                this.classList.add( active );
+                
+                // إظهار القسم المطلوب
+                const targetId = this.getAttribute( data-target );
+                document.getElementById(targetId).classList.add( active );
+                
+                // التمرير للأعلى
+                window.scrollTo({ top: 0, behavior:  smooth  });
+            });
+        });
+
+        // نظام البحث في المتسابقين
+        const searchBox = document.querySelector( .search-box );
+        if (searchBox) {
+            searchBox.addEventListener( input , function() {
+                const searchTerm = this.value.toLowerCase();
+                const rows = document.querySelectorAll( #contestants tbody tr );
+                
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        row.style.display =   ;
+                    } else {
+                        row.style.display =  none ;
+                    }
+                });
+            });
+        }
+
+        // رسالة ترحيبية عند التحميل
+        window.addEventListener( load , function() {
+            console.log( 🌙 موقع مسابقة قرية التلاوة - تم التحميل بنجاح );
+            console.log( 📅 رمضان ١٤٤٧هـ - مركز الطود );
+        });
+
+        // تحديث تلقائي للتاريخ
+        function updateDate() {
+            const now = new Date();
+            const options = { weekday:  long , year:  numeric , month:  long , day:  numeric  };
+            const dateString = now.toLocaleDateString( ar-EG , options);
+            
+            // يمكن إضافة التاريخ في مكان مناسب
+            const dateElement = document.getElementById( current-date );
+            if (dateElement) {
+                dateElement.textContent = dateString;
+            }
+        }
+        
+        // تشغيل تحديث التاريخ
+        updateDate();
+        setInterval(updateDate, 60000); // تحديث كل دقيقة
+
+        // تأثيرات تفاعلية للجداول
+        document.querySelectorAll( tbody tr ).forEach(row => {
+            row.addEventListener( mouseenter , function() {
+                this.style.transition =  all 0.3s ease ;
+                this.style.backgroundColor =  #e1f5fe ;
+            });
+            
+            row.addEventListener( mouseleave , function() {
+                this.style.backgroundColor =   ;
+            });
+        });
+    </script>
+</body>
+  </html>
+                     
