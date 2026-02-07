@@ -12,6 +12,9 @@
             --opening-red: #C62828;
             --quran-green: #1a5f7a;
             --light-bg: #fff9e6;
+            --facebook-blue: #1877F2;
+            --map-green: #34A853;
+            --jury-purple: #6A1B9A;
         }
         
         * {
@@ -21,7 +24,7 @@
         }
         
         body {
-            font-family:  Tajawal ,  Amiri , sans-serif;
+            font-family: 'Tajawal', 'Amiri', sans-serif;
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             color: #333;
             line-height: 1.8;
@@ -124,6 +127,100 @@
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--opening-red);
+        }
+        
+        /* لجنة التحكيم */
+        .jury-section {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            border-right: 8px solid var(--jury-purple);
+        }
+        
+        .jury-title {
+            color: var(--jury-purple);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .jury-title::after {
+            content: "⚖️";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+        }
+        
+        .jury-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .jury-member {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--jury-purple);
+        }
+        
+        .jury-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .jury-member.chairman {
+            border-top-color: var(--festival-gold);
+            background: linear-gradient(135deg, #fffde7, #fff9c4);
+        }
+        
+        .jury-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--jury-purple), #8e24aa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .jury-avatar.chairman {
+            background: linear-gradient(135deg, var(--festival-gold), #ffb300);
+        }
+        
+        .jury-name {
+            color: var(--jury-purple);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .jury-role {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            padding: 8px 15px;
+            background: #f5f5f5;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .jury-role.chairman {
+            background: var(--festival-gold);
+            color: #333;
+            font-weight: bold;
         }
         
         /* قائمة المتسابقين اليوم */
@@ -249,7 +346,11 @@
         }
         
         .share-btn.facebook {
-            background: linear-gradient(135deg, #1877F2, #0d5cb6);
+            background: linear-gradient(135deg, var(--facebook-blue), #0d5cb6);
+        }
+        
+        .share-btn.map {
+            background: linear-gradient(135deg, var(--map-green), #0d8a3a);
         }
         
         /* الفوتر الاحتفالي */
@@ -263,6 +364,74 @@
             border-top: 5px solid var(--festival-gold);
         }
         
+        /* بطاقات التواصل */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid var(--festival-gold);
+        }
+        
+        .contact-card.facebook {
+            border-top-color: var(--facebook-blue);
+        }
+        
+        .contact-card.map {
+            border-top-color: var(--map-green);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--opening-red);
+        }
+        
+        .contact-card.facebook .contact-icon {
+            color: var(--facebook-blue);
+        }
+        
+        .contact-card.map .contact-icon {
+            color: var(--map-green);
+        }
+        
+        .contact-btn {
+            background: var(--opening-red);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .contact-btn.facebook {
+            background: var(--facebook-blue);
+        }
+        
+        .contact-btn.map {
+            background: var(--map-green);
+        }
+        
         @media (max-width: 768px) {
             .opening-title { font-size: 2.5rem; }
             .opening-subtitle { font-size: 1.3rem; }
@@ -271,6 +440,9 @@
             .countdown-unit { min-width: 80px; padding: 15px; }
             .countdown-number { font-size: 2rem; }
             .today-table th, .today-table td { padding: 12px 8px; font-size: 0.9rem; }
+            .contact-cards { grid-template-columns: 1fr; }
+            .jury-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+            .jury-avatar { width: 100px; height: 100px; font-size: 2.5rem; }
         }
         
         /* تأثيرات إضافية */
@@ -349,6 +521,113 @@
                         <i class="fas fa-users"></i> 30 متسابقاً جاهزين للافتتاح
                     </p>
                 </div>
+            </div>
+        </div>
+
+        <!-- لجنة التحكيم -->
+        <div class="jury-section">
+            <h2 class="jury-title">👨‍⚖️ لجنة التحكيم الموقرة</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 30px;">
+                السادة أعضاء لجنة التحكيم في "قرية التلاوة"، للمرحلة الأولية قبل دخول الشهر الكريم
+            </p>
+            
+            <div class="jury-grid">
+                <!-- رئيس اللجنة -->
+                <div class="jury-member chairman">
+                    <div class="jury-avatar chairman">
+                        👑
+                    </div>
+                    <h3 class="jury-name">فضيلة الشيخ/ طه يونس</h3>
+                    <div class="jury-role chairman">رئيس اللجنة</div>
+                    <p style="color: #666; font-size: 0.95rem; margin-top: 10px;">
+                        رئيس لجنة التحكيم<br>خبير في علوم القرآن والتجويد
+                    </p>
+                </div>
+                
+                <!-- الأعضاء -->
+                <div class="jury-member">
+                    <div class="jury-avatar">
+                        📖
+                    </div>
+                    <h3 class="jury-name">فضيلة الشيخ/ أحمد كيلاني محمد</h3>
+                    <div class="jury-role">عضو اللجنة</div>
+                    <p style="color: #666; font-size: 0.95rem; margin-top: 10px;">
+                        عالم بالأحكام والتلاوات<br>صوت مميز في التلاوة
+                    </p>
+                </div>
+                
+                <div class="jury-member">
+                    <div class="jury-avatar">
+                        ⚙️
+                    </div>
+                    <h3 class="jury-name">الشيخ المهندس/ أحمد محمد علي فضل</h3>
+                    <div class="jury-role">عضو اللجنة</div>
+                    <p style="color: #666; font-size: 0.95rem; margin-top: 10px;">
+                        دقة هندسية في الأحكام<br>خبرة في المقامات الصوتية
+                    </p>
+                </div>
+                
+                <div class="jury-member">
+                    <div class="jury-avatar">
+                        🌟
+                    </div>
+                    <h3 class="jury-name">فضيلة الشيخ/ الطاهر النوبي</h3>
+                    <div class="jury-role">عضو اللجنة</div>
+                    <p style="color: #666; font-size: 0.95rem; margin-top: 10px;">
+                        مدرسة النوبة في التلاوة<br>خبير في الأنغام والمقامات
+                    </p>
+                </div>
+                
+                <div class="jury-member">
+                    <div class="jury-avatar">
+                        🎵
+                    </div>
+                    <h3 class="jury-name">فضيلة الشيخ/ حمدي عبد الصبور</h3>
+                    <div class="jury-role">عضو اللجنة</div>
+                    <p style="color: #666; font-size: 0.95rem; margin-top: 10px;">
+                        صوت عذب في التلاوة<br>خبرة في تدريس التجويد
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.5); border-radius: 15px;">
+                <p style="color: var(--jury-purple); font-weight: bold; font-size: 1.1rem;">
+                    <i class="fas fa-star"></i> اللجنة تضم نخبة من أفضل القراء والمحكمين في مصر<br>
+                    <i class="fas fa-award"></i> خبرات متعددة في علوم القرآن والتجويد والمقامات
+                </p>
+            </div>
+        </div>
+
+        <!-- بطاقات التواصل -->
+        <div class="contact-cards">
+            <div class="contact-card facebook">
+                <div class="contact-icon">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <h2 style="color: var(--facebook-blue); margin-bottom: 15px;">
+                    صفحة الفيسبوك الرسمية
+                </h2>
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
+                    تابع آخر أخبار المسابقة وتفاصيل الفعاليات عبر صفحتنا الرسمية على الفيسبوك
+                </p>
+                <button class="contact-btn facebook" onclick="openFacebookPage()">
+                    <i class="fab fa-facebook-f"></i> زيارة صفحة الفيسبوك
+                </button>
+            </div>
+            
+            <div class="contact-card map">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h2 style="color: var(--map-green); margin-bottom: 15px;">
+                    موقع المسجد على الخريطة
+                </h2>
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
+                    اعرف مكان مسجد جمال عبد الناصر (الكيلانية) بالضبط لتصل في الموعد
+                </p>
+                <button class="contact-btn map" onclick="openMapLocation()">
+                    <i class="fas fa-directions"></i> افتح الموقع على الخريطة
+                </button>
             </div>
         </div>
 
@@ -631,6 +910,10 @@
                 <i class="fab fa-facebook"></i> شارك على فيسبوك
             </button>
             
+            <button class="share-btn map" onclick="shareWithLocation()">
+                <i class="fas fa-map-marker-alt"></i> شارك الموقع
+            </button>
+            
             <div style="margin-top: 40px;">
                 <p style="font-size: 1.2rem; color: #666;">
                     <strong>هاشتاق الحدث:</strong> 
@@ -653,6 +936,16 @@
                     <strong>برعاية:</strong> الدمياطي للأثاث الراقي<br>
                     <strong>مكان الحدث:</strong> مركز الطود - مسجد جمال عبد الناصر (الكيلانية)
                 </p>
+                
+                <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="https://www.facebook.com/profile.php?id=61586786829136" target="_blank" style="color: white; text-decoration: none; background: var(--facebook-blue); padding: 10px 20px; border-radius: 25px; display: inline-flex; align-items: center; gap: 10px;">
+                        <i class="fab fa-facebook-f"></i> صفحة الفيسبوك
+                    </a>
+                    
+                    <a href="https://maps.app.goo.gl/sA9VHGkGWve3fZTb8" target="_blank" style="color: white; text-decoration: none; background: var(--map-green); padding: 10px 20px; border-radius: 25px; display: inline-flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-map-marker-alt"></i> موقع المسجد
+                    </a>
+                </div>
             </div>
             
             <p style="font-size: 1.2rem; margin-top: 30px; opacity: 0.9;">
@@ -669,10 +962,35 @@
     </div>
 
     <script>
+        // روابط التواصل
+        function openFacebookPage() {
+            window.open('https://www.facebook.com/profile.php?id=61586786829136', '_blank');
+        }
+        
+        function openMapLocation() {
+            window.open('https://maps.app.goo.gl/sA9VHGkGWve3fZTb8', '_blank');
+        }
+        
+        // مشاركة مع الموقع
+        function shareWithLocation() {
+            const text = "🎤 افتتاح تصفيات مسابقة قرية التلاوة!\nاليوم: السبت 7 فبراير\nالمكان: مسجد جمال عبد الناصر (الكيلانية)\nالوقت: بعد صلاة العصر\nالموقع: https://maps.app.goo.gl/sA9VHGkGWve3fZTb8\nهاشتاق: #قرية_التلاوة_الافتتاح";
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'افتتاح تصفيات قرية التلاوة',
+                    text: text,
+                    url: 'https://maps.app.goo.gl/sA9VHGkGWve3fZTb8'
+                });
+            } else {
+                const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+                window.open(url, '_blank');
+            }
+        }
+
         // العد التنازلي للافتتاح
         function updateCountdown() {
             const now = new Date();
-            const eventDate = new Date( 2026-02-07T15:00:00 ); // 3 مساءً
+            const eventDate = new Date('2026-02-07T15:00:00'); // 3 مساءً
             const diff = eventDate - now;
             
             if (diff > 0) {
@@ -680,11 +998,11 @@
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
                 
-                document.getElementById( hours ).textContent = hours.toString().padStart(2,  0 );
-                document.getElementById( minutes ).textContent = minutes.toString().padStart(2,  0 );
-                document.getElementById( seconds ).textContent = seconds.toString().padStart(2,  0 );
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             } else {
-                document.getElementById( countdownTimer ).innerHTML = `
+                document.getElementById('countdownTimer').innerHTML = `
                     <div style="font-size: 2.5rem; color: var(--festival-gold);">
                         🎉 الافتتاح بدأ! 🎉
                     </div>
@@ -697,27 +1015,29 @@
         
         // مشاركة على واتساب
         function shareOnWhatsApp() {
-            const text = "🎤 انضم إلي لحضور افتتاح تصفيات مسابقة قرية التلاوة!\nاليوم: السبت 7 فبراير\nالمكان: مسجد جمال عبد الناصر (الكيلانية)\nالوقت: بعد صلاة العصر\nهاشتاق: #قرية_التلاوة_الافتتاح";
+            const text = "🎤 انضم إلي لحضور افتتاح تصفيات مسابقة قرية التلاوة!\nاليوم: السبت 7 فبراير\nالمكان: مسجد جمال عبد الناصر (الكيلانية)\nالوقت: بعد صلاة العصر\nالموقع: https://maps.app.goo.gl/sA9VHGkGWve3fZTb8\nهاشتاق: #قرية_التلاوة_الافتتاح";
             const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(url,  _blank );
+            window.open(url, '_blank');
         }
         
         // مشاركة على فيسبوك
         function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`,  _blank );
+            const text = "🎤 افتتاح تصفيات مسابقة قرية التلاوة! شاركونا اليوم السبت 7 فبراير بعد صلاة العصر في مسجد جمال عبد الناصر (الكيلانية)";
+            const url = encodeURIComponent('https://maps.app.goo.gl/sA9VHGkGWve3fZTb8');
+            const hashtag = encodeURIComponent('#قرية_التلاوة_الافتتاح');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodeURIComponent(text)}&hashtag=${hashtag}`, '_blank');
         }
         
         // تأثيرات كونفيتي
         function createConfetti() {
-            const colors = [ #FFD700 ,  #C62828 ,  #1a5f7a ,  #4CAF50 ];
+            const colors = ['#FFD700', '#C62828', '#1a5f7a', '#4CAF50', '#1877F2', '#34A853', '#6A1B9A'];
             for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement( div );
-                confetti.className =  confetti ;
-                confetti.style.left = Math.random() * 100 +  vw ;
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.animationDuration = (Math.random() * 3 + 2) +  s ;
-                confetti.style.animationDelay = Math.random() * 5 +  s ;
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
                 document.body.appendChild(confetti);
                 
                 setTimeout(() => confetti.remove(), 7000);
@@ -731,10 +1051,9 @@
         // رسالة ترحيبية
         window.onload = function() {
             setTimeout(() => {
-                alert( 🎊 أهلاً بك في صفحة افتتاح تصفيات قرية التلاوة! استمتع بالحدث 🎉 );
+                alert('🎊 أهلاً بك في صفحة افتتاح تصفيات قرية التلاوة! استمتع بالحدث 🎉');
             }, 1000);
         };
     </script>
 </body>
-    </html>
-    
+</html>
