@@ -21,7 +21,7 @@
         }
         
         body {
-            font-family: 'Tajawal', 'Amiri', sans-serif;
+            font-family:  Tajawal ,  Amiri , sans-serif;
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             color: #333;
             line-height: 1.8;
@@ -672,7 +672,7 @@
         // العد التنازلي للافتتاح
         function updateCountdown() {
             const now = new Date();
-            const eventDate = new Date('2026-02-07T15:00:00'); // 3 مساءً
+            const eventDate = new Date( 2026-02-07T15:00:00 ); // 3 مساءً
             const diff = eventDate - now;
             
             if (diff > 0) {
@@ -680,11 +680,11 @@
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
                 
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                document.getElementById( hours ).textContent = hours.toString().padStart(2,  0 );
+                document.getElementById( minutes ).textContent = minutes.toString().padStart(2,  0 );
+                document.getElementById( seconds ).textContent = seconds.toString().padStart(2,  0 );
             } else {
-                document.getElementById('countdownTimer').innerHTML = `
+                document.getElementById( countdownTimer ).innerHTML = `
                     <div style="font-size: 2.5rem; color: var(--festival-gold);">
                         🎉 الافتتاح بدأ! 🎉
                     </div>
@@ -699,25 +699,25 @@
         function shareOnWhatsApp() {
             const text = "🎤 انضم إلي لحضور افتتاح تصفيات مسابقة قرية التلاوة!\nاليوم: السبت 7 فبراير\nالمكان: مسجد جمال عبد الناصر (الكيلانية)\nالوقت: بعد صلاة العصر\nهاشتاق: #قرية_التلاوة_الافتتاح";
             const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            window.open(url,  _blank );
         }
         
         // مشاركة على فيسبوك
         function shareOnFacebook() {
             const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`,  _blank );
         }
         
         // تأثيرات كونفيتي
         function createConfetti() {
-            const colors = ['#FFD700', '#C62828', '#1a5f7a', '#4CAF50'];
+            const colors = [ #FFD700 ,  #C62828 ,  #1a5f7a ,  #4CAF50 ];
             for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
+                const confetti = document.createElement( div );
+                confetti.className =  confetti ;
+                confetti.style.left = Math.random() * 100 +  vw ;
                 confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) +  s ;
+                confetti.style.animationDelay = Math.random() * 5 +  s ;
                 document.body.appendChild(confetti);
                 
                 setTimeout(() => confetti.remove(), 7000);
@@ -731,9 +731,10 @@
         // رسالة ترحيبية
         window.onload = function() {
             setTimeout(() => {
-                alert('🎊 أهلاً بك في صفحة افتتاح تصفيات قرية التلاوة! استمتع بالحدث 🎉');
+                alert( 🎊 أهلاً بك في صفحة افتتاح تصفيات قرية التلاوة! استمتع بالحدث 🎉 );
             }, 1000);
         };
     </script>
 </body>
-</html>
+    </html>
+    
