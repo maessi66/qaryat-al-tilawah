@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>قرية التلاوة – نجع المهيدات | الموسم الثاني | مسابقة</title>
-<meta name="description" content="قرية التلاوة – نجع المهيدات، الموسم الثاني على محافظة الأقصر. مسابقة القرآن الكريم: تسجيل المتسابقين، بطاقة التسجيل، صور وفعاليات الموسم السابق، نصائح للمتسابقين. الدعوة عامة." />
+<meta name="description" content="قرية التلاوة – نجع المهيدات، الموسم الثاني على مستوى محافظة الأقصر. مسابقة القرآن الكريم: تسجيل المتسابقين، بطاقة التسجيل، صور وفعاليات الموسم السابق." />
 <meta name="theme-color" content="#0b4130" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="قرية التلاوة – نجع المهيدات" />
 <meta property="og:title" content="📖 قرية التلاوة – نجع المهيدات | الموسم الثاني" />
-<meta property="og:description" content="مسابقة القرآن الكريم – سجّل الآن واحصل على بطاقة التسجيل. الدعوة عامة." />
+<meta property="og:description" content="مسابقة القرآن الكريم – سجّل الآن واحصل على بطاقة التسجيل." />
 <meta property="og:locale" content="ar_EG" />
 <meta name="twitter:card" content="summary_large_image" />
 
@@ -94,12 +94,6 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .head-line{display:block;width:110px;height:3px;margin:.7rem auto 0;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .section-sub{color:var(--muted);font-size:.95rem;margin:.7rem auto 0;max-width:640px;}
 
-/* تنسيق كلام الترحيب بعد إزالة الكروت */
-.welcome-box{text-align:center;max-width:800px;margin:0 auto;}
-.welcome-box h3{font-family:'Amiri',serif;font-size:1.8rem;color:var(--green-800);margin:0 0 .6rem;}
-.welcome-box p{color:var(--muted);margin:0 0 1rem;font-size:1.05rem;}
-.callout{display:inline-block;font-weight:800;color:var(--red-800);border:1.5px dashed var(--gold);border-radius:14px;padding:.5rem 1.4rem;background:rgba(212,175,55,.09);font-size:.95rem;}
-
 .form-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:26px;padding:2.2rem;box-shadow:var(--shadow);}
 .form-card::before{content:"";position:absolute;top:0;right:0;left:0;height:5px;background:linear-gradient(90deg,var(--green-700),var(--gold),var(--red-800));}
 .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem 1.4rem;}
@@ -129,6 +123,11 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .card-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid #fffdf8;background:var(--cream-2);}
 .card-name{text-align:center;font-family:'Amiri',serif;font-size:1.5rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--red-800),var(--red-900));border:1.5px solid var(--gold);border-radius:14px;padding:.5rem 1rem;margin:0 auto .5rem;max-width:92%;word-break:break-word;}
 .card-level{text-align:center;font-size:.85rem;font-weight:800;color:var(--green-800);background:rgba(15,85,64,.08);border:1px solid rgba(15,85,64,.2);border-radius:999px;padding:.28rem 1rem;display:block;width:fit-content;margin:0 auto 1rem;}
+
+.card-code{display:block;width:fit-content;margin:0 auto 1rem;text-align:center;padding:.5rem 1.2rem;background:linear-gradient(135deg, rgba(212,175,55,.22), rgba(212,175,55,.08));border:1.5px dashed var(--gold);border-radius:14px;}
+.card-code .cc-label{display:block;font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.3px;margin-bottom:.15rem;}
+.card-code .cc-value{display:block;font-family:'Courier New', monospace;font-size:1.15rem;font-weight:800;color:var(--red-800);letter-spacing:2px;direction:ltr;}
+
 .card-info{border:1px solid rgba(212,175,55,.5);border-radius:14px;overflow:hidden;}
 .info-row{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.55rem .9rem;font-size:.86rem;background:#fffdf8;}
 .info-row:nth-child(odd){background:rgba(248,241,224,.65);}
@@ -144,7 +143,7 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
 .g-item{margin:0;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .25s, box-shadow .25s;}
 .g-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.g-ph{height:190px;display:grid;place-items:center;font-size:2.2rem;color:rgba(212,175,55,.85);background:radial-gradient(circle at 30% 20%, rgba(212,175,55,.22), transparent 55%),linear-gradient(150deg,var(--green-800),var(--green-900));border-bottom:3px solid var(--gold);}
+.g-item img{height:190px;width:100%;object-fit:cover;display:block;border-bottom:3px solid var(--gold);}
 .g-item figcaption{padding:.8rem 1rem;font-size:.85rem;font-weight:700;color:var(--green-800);text-align:center;}
 .gallery-note{margin-top:1.4rem;text-align:center;font-size:.85rem;color:var(--muted);}
 
@@ -153,16 +152,6 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .notice-box .nb-icon{font-size:2.4rem;display:block;margin-bottom:.6rem;}
 .notice-box h3{font-family:'Amiri',serif;font-size:1.6rem;color:var(--red-800);margin:0 0 .5rem;}
 .notice-box p{color:var(--muted);margin:0;font-size:1rem;}
-
-.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}
-.tip{display:flex;gap:.9rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-right:5px solid var(--gold);border-radius:16px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);}
-.tip .t-num{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.9rem;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#3a2c05;}
-.tip p{margin:0;font-size:.9rem;color:var(--ink);line-height:1.8;}
-
-.criteria{margin-top:1.6rem;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.4rem;box-shadow:var(--shadow);}
-.criteria h4{margin:0 0 .9rem;text-align:center;font-family:'Amiri',serif;font-size:1.25rem;color:var(--green-800);}
-.criteria ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-.criteria li{background:var(--cream-2);border-radius:14px;padding:.85rem 1rem;font-size:.85rem;color:var(--green-800);font-weight:600;text-align:center;border:1px dashed rgba(212,175,55,.6);}
 
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:900px;margin:0 auto;}
 .contact-card{display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem 1rem;text-decoration:none;box-shadow:var(--shadow);transition:transform .25s, box-shadow .25s;}
@@ -180,8 +169,8 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .toast{position:fixed;bottom:22px;right:50%;z-index:300;transform:translate(50%,140%);background:var(--green-800);color:#fff;border:1px solid var(--gold);padding:.85rem 1.5rem;border-radius:16px;font-size:.9rem;font-weight:700;box-shadow:var(--shadow-lg);transition:transform .35s ease;max-width:90vw;text-align:center;}
 .toast.show{transform:translate(50%,0);} .toast.error{background:var(--red-800);border-color:var(--gold-2);}
 
-@media (max-width:980px){ .gallery{grid-template-columns:repeat(2,1fr);} .criteria ul{grid-template-columns:1fr;} }
-@media (max-width:760px){ .header-inner{justify-content:center;text-align:center;} .header-tag{display:none;} .header-main h1{font-size:1.6rem;} .form-grid{grid-template-columns:1fr;} .form-card{padding:1.4rem;border-radius:20px;} .tips-grid{grid-template-columns:1fr;} .contact-grid{grid-template-columns:1fr;} .gallery{grid-template-columns:1fr;} .footer-inner{justify-content:center;text-align:center;} .section{padding:46px 0;} .hero{padding:48px 0 56px;} .card-head{justify-content:center;text-align:center;} .card-titles{text-align:center;} }
+@media (max-width:980px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:760px){ .header-inner{justify-content:center;text-align:center;} .header-tag{display:none;} .header-main h1{font-size:1.6rem;} .form-grid{grid-template-columns:1fr;} .form-card{padding:1.4rem;border-radius:20px;} .contact-grid{grid-template-columns:1fr;} .gallery{grid-template-columns:1fr;} .footer-inner{justify-content:center;text-align:center;} .section{padding:46px 0;} .hero{padding:48px 0 56px;} .card-head{justify-content:center;text-align:center;} .card-titles{text-align:center;} }
 @media print{ @page{size:auto;margin:12mm;} html,body{background:#fff !important;} body{background-image:none !important;} .site-header,.site-nav,.site-footer,.no-print,section:not(#card){display:none !important;} #card{padding:0 !important;background:#fff !important;} #card .section-head{display:none !important;} #card .container{width:100%;max-width:100%;} #cardEmpty{display:none !important;} .card-wrap{display:block !important;} .reg-card{box-shadow:none !important;margin:0 auto;page-break-inside:avoid;} }
 </style>
 </head>
@@ -206,7 +195,6 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
     <a href="#card" class="nav-link">بطاقة التسجيل</a>
     <a href="#gallery" class="nav-link">صور وفعاليات</a>
     <a href="#judges" class="nav-link">لجنة التحكيم</a>
-    <a href="#tips" class="nav-link">نصائح للمتسابقين</a>
     <a href="#contact" class="nav-link">تواصل معنا</a>
   </div>
 </nav>
@@ -217,29 +205,16 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
       <span class="hero-eyebrow">مسابقة</span>
       <h2>📖 قرية التلاوة</h2>
       <p class="hero-place">نجع المهيدات</p>
-      <div class="hero-season">الموسم الثاني على محافظة الأقصر</div>
+      <div class="hero-season">الموسم الثاني على مستوى محافظة الأقصر</div>
       <p class="hero-verse">﴿ أهل القرآن هم أهل الله وخاصته ﴾</p>
-      
-      <!-- العداد الحقيقي من Firebase -->
       <div class="counter-box">
         <span>👥</span>
         <span id="counterDisplay">0</span>
         <span>متسابق مسجل</span>
       </div>
-
       <div class="hero-actions">
         <a href="#register" class="btn btn-gold">🪪 تسجيل متسابق</a>
         <a href="#card" class="btn btn-outline" style="border-color:var(--gold);color:var(--gold-soft);background:rgba(212,175,55,.10);">بطاقة التسجيل</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="welcome-box">
-        <h3>مرحبًا بكم في قرية التلاوة</h3>
-        <p>نفتح أبوابنا من جديد، وهذه المرة على مستوى محافظة الأقصر جمعاء، لتكون ميدانًا للتنافس في تلاوة القرآن الكريم وعودة للمدرسة المصرية الأصيلة في التلاوة.</p>
-        <div class="callout">❖ الدعوة عامة ❖</div>
       </div>
     </div>
   </section>
@@ -293,6 +268,10 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
               <div class="card-photo"><img id="cardPhoto" src="" alt="صورة المتسابق" /></div>
               <div class="card-name" id="cardName">—</div>
               <div class="card-level" id="cardLevel">—</div>
+              <div class="card-code">
+                <span class="cc-label">كود المتسابق</span>
+                <span class="cc-value" id="cardCode">QT-0000-0000</span>
+              </div>
               <div class="card-info">
                 <div class="info-row"><span>السن</span><strong id="cardAge">—</strong></div>
                 <div class="info-row"><span>المحافظة</span><strong>الأقصر</strong></div>
@@ -309,7 +288,7 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
           <button type="button" class="btn btn-primary" id="printBtn">🖨️ طباعة / حفظ البطاقة</button>
           <button type="button" class="btn btn-wa" id="waBtn">📲 مشاركة كصورة على واتساب</button>
         </div>
-        <p class="card-note no-print">💡 عند الضغط على «مشاركة كصورة»، سيتم تحويل البطاقة إلى صورة PNG وفتح الواتساب لإرسالها مباشرة.</p>
+        <p class="card-note no-print">💡 احتفظ بكود المتسابق — سيُطلب منك عند التحكيم.</p>
       </div>
     </div>
   </section>
@@ -318,12 +297,30 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
     <div class="container">
       <div class="section-head"><h2><span class="orn">❖</span> من فعاليات وفائزي الموسم السابق <span class="orn">❖</span></h2><span class="head-line"></span><p class="section-sub">لقطات من أجواء المسابقة وتكريم المشاركين.</p></div>
       <div class="gallery">
-        <figure class="g-item"><div class="g-ph">🖼️</div><figcaption>تكريم الفائزين</figcaption></figure>
-        <figure class="g-item"><div class="g-ph">🖼️</div><figcaption>لحظات التتويج</figcaption></figure>
-        <figure class="g-item"><div class="g-ph">🖼️</div><figcaption>أجواء المسابقة</figcaption></figure>
-        <figure class="g-item"><div class="g-ph">🖼️</div><figcaption>المشاركون في المسابقة</figcaption></figure>
-        <figure class="g-item"><div class="g-ph">🖼️</div><figcaption>تلاوة المتسابقين</figcaption></figure>
-        <figure class="g-item"><div class="g-ph">🖼️</div><figcaption>ختام الموسم السابق</figcaption></figure>
+        <figure class="g-item">
+          <img src="1.jpg" alt="تكريم الفائزين">
+          <figcaption>تكريم الفائزين</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="2.jpg" alt="المسرح واللجنة">
+          <figcaption>المسرح واللجنة</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="3.jpg" alt="الفائزون بالكؤوس">
+          <figcaption>الفائزون بالكؤوس</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="4.jpg" alt="جلسة التحكيم">
+          <figcaption>جلسة التحكيم</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="5.jpg" alt="لجنة التحكيم">
+          <figcaption>لجنة التحكيم</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="6.jpg" alt="تكريم الفائزين">
+          <figcaption>تكريم الفائزين</figcaption>
+        </figure>
       </div>
       <p class="gallery-note">سيتم إضافة المزيد من صور الموسم الثاني بعد انتهاء فعالياته بإذن الله.</p>
     </div>
@@ -333,26 +330,6 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
     <div class="container">
       <div class="section-head"><h2><span class="orn">❖</span> لجنة التحكيم <span class="orn">❖</span></h2><span class="head-line"></span></div>
       <div class="notice-box"><span class="nb-icon">⚖️</span><h3>سيتم الإعلان عنها قريبًا</h3><p>سيتم الإعلان عن أعضاء لجنة التحكيم قبل بدء الاختبارات بإذن الله.</p></div>
-    </div>
-  </section>
-
-  <section id="tips" class="section section-alt">
-    <div class="container">
-      <div class="section-head"><h2><span class="orn">❖</span> نصائح للمتسابقين <span class="orn">❖</span></h2><span class="head-line"></span><p class="section-sub">نصائح تساعدك على تقديم أفضل ما لديك في المسابقة.</p></div>
-      <div class="tips-grid">
-        <div class="tip"><span class="t-num">1</span><p>راجع مقدار الحفظ المسجّل به قبل الاختبار جيدًا.</p></div>
-        <div class="tip"><span class="t-num">2</span><p>تدرّب على التلاوة بصوت واضح وهادئ، مع مراعاة أحكام القراءة.</p></div>
-        <div class="tip"><span class="t-num">3</span><p>احرص على الحضور في الموعد المحدد دون تأخير.</p></div>
-        <div class="tip"><span class="t-num">4</span><p>اجعل هدفك إتقان كتاب الله وليس المنافسة فقط.</p></div>
-      </div>
-      <div class="criteria">
-        <h4>معايير التقييم</h4>
-        <ul>
-          <li>🎙️ <strong>التلاوة:</strong> تقييم جودة التلاوة وأحكام القراءة.</li>
-          <li>📖 <strong>الحفظ:</strong> اختبار مقدار الحفظ ودقة التسميع.</li>
-          <li>⚖️ <strong>التقييم:</strong> تقييم المشاركين وفق قواعد المسابقة.</li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -397,7 +374,6 @@ const firebaseConfig = {
   measurementId: "G-SQELMZXN8N"
 };
 
-// تهيئة Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const counterRef = db.ref('stats/contestantCount');
@@ -407,9 +383,9 @@ const contestantsRef = db.ref('contestants');
 // 2. إعدادات الموقع العامة
 // ============================================================
 const CONFIG = {
-  whatsapp: "", // ضع رقم الواتساب هنا (مثال: "201012345678")
-  facebook: "", // ضع رابط الفيسبوك هنا
-  phone: ""     // ضع رقم الهاتف هنا
+  whatsapp: "",
+  facebook: "",
+  phone: ""
 };
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -426,7 +402,17 @@ function toast(message, type = "ok") {
 }
 
 // ============================================================
-// 3. العداد الحقيقي من Firebase
+// 3. توليد كود فريد للمتسابق
+// ============================================================
+function generateContestantCode() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const block = () => Array.from({length: 4}, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  const year = new Date().getFullYear().toString().slice(-2);
+  return `QT${year}-${block()}-${block()}`;
+}
+
+// ============================================================
+// 4. العداد الحقيقي من Firebase
 // ============================================================
 counterRef.on('value', (snapshot) => {
   const count = snapshot.val() || 0;
@@ -434,7 +420,7 @@ counterRef.on('value', (snapshot) => {
 });
 
 // ============================================================
-// 4. الصورة والتسجيل
+// 5. الصورة والتسجيل
 // ============================================================
 const photoInput = $("#photo");
 const photoPreview = $("#photoPreview");
@@ -480,21 +466,18 @@ regForm.addEventListener("submit", (e) => {
   if (!amount)                      return fail("اكتب مقدار القرآن المحفوظ.", $("#amount"));
   if (!state.photo)                 return fail("الرجاء اختيار صورة شخصية حقيقية للمتسابق.", $("#pickPhotoBtn"));
 
-  state.data = { name, age, level, center, address: address || "—", teacher, amount, photo: state.photo };
+  const code = generateContestantCode();
+  state.data = { code, name, age, level, center, address: address || "—", teacher, amount, photo: state.photo };
   renderCard(state.data);
 
-  // حفظ البيانات في Firebase (بدون الصورة عشان حجمها كبير)
   const contestantData = {
-    name: name, age: age, level: level, center: center,
+    code: code, name: name, age: age, level: level, center: center,
     address: address || "—", teacher: teacher, amount: amount,
     timestamp: new Date().toISOString()
   };
   contestantsRef.push(contestantData);
 
-  // زيادة العداد في Firebase
-  counterRef.transaction((currentCount) => {
-    return (currentCount || 0) + 1;
-  });
+  counterRef.transaction((currentCount) => (currentCount || 0) + 1);
 
   $("#cardEmpty").hidden = true;
   $("#cardWrap").hidden = false;
@@ -509,6 +492,7 @@ $("#resetBtn").addEventListener("click", () => {
 });
 
 function renderCard(d) {
+  $("#cardCode").textContent    = d.code;
   $("#cardName").textContent    = d.name;
   $("#cardLevel").textContent   = d.level;
   $("#cardAge").textContent     = d.age + " سنة";
@@ -535,13 +519,17 @@ $("#waBtn").addEventListener("click", async () => {
     const cardElement = document.getElementById("regCard");
     const canvas = await html2canvas(cardElement, { scale: 2, useCORS: true, backgroundColor: "#fffdf8", logging: false });
     const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-    const file = new File([blob], `بطاقة_${state.data.name}.png`, { type: 'image/png' });
+    const file = new File([blob], `بطاقة_${state.data.code}.png`, { type: 'image/png' });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({ files: [file], title: 'بطاقة تسجيل - قرية التلاوة', text: 'بطاقة تسجيل المتسابق في مسابقة القرآن الكريم - قرية التلاوة' });
+      await navigator.share({
+        files: [file],
+        title: 'بطاقة تسجيل - قرية التلاوة',
+        text: `بطاقة تسجيل المتسابق في مسابقة القرآن الكريم - قرية التلاوة\nكود المتسابق: ${state.data.code}`
+      });
       toast("تم فتح نافذة المشاركة ✅");
     } else {
       const link = document.createElement('a');
-      link.download = `بطاقة_${state.data.name}.png`;
+      link.download = `بطاقة_${state.data.code}.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
       toast("تم تحميل البطاقة كصورة. ابعتها على واتساب.", "ok");
@@ -586,4 +574,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 </body>
-    </html>
+                                                                                             </html>
