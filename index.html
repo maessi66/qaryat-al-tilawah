@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>قرية التلاوة – نجع المهيدات | الموسم الثاني | مسابقة القرآن الكريم</title>
+<meta name="description" content="قرية التلاوة – نجع المهيدات، الموسم الثاني. مسابقة القرآن الكريم: تسجيل المتسابقين، بطاقة التسجيل، صور وفعاليات الموسم السابق، نصائح للمتسابقين. الدعوة عامة." />
+<meta name="theme-color" content="#0b4130" />
+
+<!-- ====== مشاركة على واتساب / فيسبوك ====== -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="قرية التلاوة – نجع المهيدات" />
+<meta property="og:title" content="📖 قرية التلاوة – نجع المهيدات | الموسم الثاني" />
+<meta property="og:description" content="مسابقة القرآن الكريم – سجّل الآن واحصل على بطاقة التسجيل. الدعوة عامة." />
+<meta property="og:locale" content="ar_EG" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- ضع هنا رابط صورة المسابقة بعد رفعها للمستودع:
+<meta property="og:image" content="https://USERNAME.github.io/REPO/cover.jpg" />
+-->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   المتغيرات العامة
+   ============================================================ */
+:root{
+  --green-950:#04211a;
+  --green-900:#073125;
+  --green-800:#0b4130;
+  --green-700:#0f5540;
+  --green-600:#157253;
+  --gold:#d4af37;
+  --gold-2:#e8c766;
+  --gold-soft:#f5e3ab;
+  --gold-dark:#9c7a1c;
+  --red-900:#5a0f1b;
+  --red-800:#7a1526;
+  --cream:#fdfaf2;
+  --cream-2:#f8f1e0;
+  --line:rgba(15,85,64,.15);
+  --ink:#2b2620;
+  --muted:#6f665c;
+  --shadow:0 10px 30px rgba(7,49,37,.10);
+  --shadow-lg:0 18px 45px rgba(7,49,37,.18);
+}
+
+/* ============================================================
+   الأساسيات
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.85;
+  color:var(--ink);
+  background-color:var(--cream);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.13' stroke-width='1'%3E%3Cpath d='M45 6 L84 45 L45 84 L6 45 Z'/%3E%3Ccircle cx='45' cy='45' r='7'/%3E%3C/g%3E%3C/svg%3E");
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+[hidden]{display:none !important;}
+.container{width:min(1180px,92%);margin-inline:auto;}
+section{scroll-margin-top:74px;}
+
+/* ============================================================
+   الأزرار
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:inherit;font-size:.95rem;font-weight:700;line-height:1.2;
+  padding:.7rem 1.4rem;border-radius:999px;border:1.5px solid transparent;
+  cursor:pointer;text-decoration:none;transition:transform .22s, box-shadow .22s, background .22s;
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:linear-gradient(135deg,var(--green-700),var(--green-800));color:#fff;box-shadow:0 8px 20px rgba(15,85,64,.28);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,85,64,.36);}
+.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#3a2c05;box-shadow:0 8px 20px rgba(212,175,55,.38);}
+.btn-gold:hover{transform:translateY(-2px);}
+.btn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 8px 20px rgba(18,140,126,.32);}
+.btn-wa:hover{transform:translateY(-2px);}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--green-800);}
+.btn-ghost:hover{background:rgba(15,85,64,.06);}
+.btn-soft{background:var(--cream-2);border-color:var(--line);color:var(--green-800);font-size:.85rem;padding:.5rem 1.05rem;}
+.btn-lg{padding:.9rem 2rem;font-size:1.05rem;}
+
+/* ============================================================
+   الهيدر
+   ============================================================ */
+.site-header{
+  background:
+    radial-gradient(900px 300px at 50% -40%, rgba(212,175,55,.20), transparent 60%),
+    linear-gradient(160deg,var(--green-900),var(--green-800) 60%,var(--green-950));
+  border-bottom:3px solid var(--gold);
+  color:#fff;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.85rem 0;flex-wrap:wrap;
+}
+
+/* اللوجو الصغير */
+.brand{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.35rem .8rem;border-radius:14px;
+  border:1px solid rgba(212,175,55,.55);
+  background:linear-gradient(180deg,rgba(212,175,55,.16),rgba(212,175,55,.03));
+  flex:0 0 auto;
+}
+.brand-mark{color:var(--gold);font-size:1rem;line-height:1;}
+.brand-text{display:flex;flex-direction:column;line-height:1.3;text-align:right;}
+.brand-name{font-size:.8rem;font-weight:800;color:var(--gold-soft);letter-spacing:.2px;}
+.brand-sub{font-size:.68rem;color:rgba(245,227,171,.72);font-weight:600;}
+.brand-sm{padding:.28rem .65rem;border-radius:12px;}
+.brand-sm .brand-name{font-size:.72rem;}
+.brand-sm .brand-sub{font-size:.62rem;}
+
+.header-main{text-align:center;flex:1 1 auto;min-width:200px;}
+.header-main h1{
+  font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.2;
+  background:linear-gradient(180deg,#fff,var(--gold-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.header-main p{margin:.1rem 0 0;font-size:.78rem;color:rgba(255,255,255,.78);font-weight:600;}
+
+.header-tag{
+  display:flex;align-items:center;gap:.4rem;flex:0 0 auto;
+  font-size:.75rem;font-weight:700;color:var(--gold-soft);
+  border:1px dashed rgba(212,175,55,.5);border-radius:999px;padding:.3rem .85rem;
+}
+
+/* ============================================================
+   القائمة
+   ============================================================ */
+.site-nav{
+  position:sticky;top:0;z-index:80;
+  background:linear-gradient(180deg,var(--red-800),var(--red-900));
+  border-bottom:2px solid var(--gold);
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+.nav-inner{
+  display:flex;gap:.25rem;overflow-x:auto;padding:.35rem 0;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-link{
+  position:relative;text-decoration:none;color:rgba(255,255,255,.85);
+  font-size:.88rem;font-weight:700;padding:.5rem 1rem;border-radius:999px;
+  white-space:nowrap;transition:.22s;
+}
+.nav-link:hover{background:rgba(255,255,255,.12);color:#fff;}
+.nav-link.active{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#3a2c05;}
+
+/* ============================================================
+   الهيرو
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;text-align:center;
+  padding:64px 0 72px;color:#fff;
+  background:
+    radial-gradient(1100px 420px at 50% -15%, rgba(212,175,55,.22), transparent 62%),
+    linear-gradient(165deg,var(--green-800),var(--green-900) 55%,var(--green-950));
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'%3E%3Cg fill='none' stroke='%23d4af37' stroke-opacity='0.18' stroke-width='1'%3E%3Cpath d='M55 8 L102 55 L55 102 L8 55 Z'/%3E%3Cpath d='M55 26 L84 55 L55 84 L26 55 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero > *{position:relative;z-index:1;}
+.hero-eyebrow{
+  display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.5px;
+  color:var(--gold-soft);border:1px solid rgba(212,175,55,.5);
+  border-radius:999px;padding:.3rem 1.1rem;margin-bottom:1rem;
+  background:rgba(212,175,55,.08);
+}
+.hero h2{
+  font-family:'Amiri',serif;
+  font-size:clamp(2.3rem,7vw,4rem);
+  margin:0 0 .2rem;line-height:1.35;
+  background:linear-gradient(180deg,#ffffff,var(--gold-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .hero-place{font-size:clamp(1rem,3vw,1.4rem);font-weight:700;color:rgba(255,255,255,.92);margin:0;}
+.hero .hero-season{
+  display:inline-block;margin:1rem 0 .6rem;
+  background:linear-gradient(135deg,var(--gold-2),var(--gold));
+  color:#3a2c05;font-weight:800;font-size:.95rem;
+  padding:.4rem 1.6rem;border-radius:999px;
+  box-shadow:0 8px 22px rgba(212,175,55,.3);
+}
+.hero .hero-verse{
+  font-family:'Amiri',serif;font-size:1.15rem;color:var(--gold-soft);
+  margin:.6rem 0 1.6rem;opacity:.95;
+}
+.hero-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+
+/* ============================================================
+   العناوين العامة للأقسام
+   ============================================================ */
+.section{padding:62px 0;}
+.section-alt{background:linear-gradient(180deg,var(--cream),var(--cream-2));}
+.section-head{text-align:center;margin-bottom:2.2rem;}
+.section-head h2{
+  font-family:'Amiri',serif;font-size:clamp(1.6rem,4.2vw,2.3rem);
+  color:var(--green-800);margin:0;display:inline-flex;align-items:center;gap:.5rem;
+}
+.section-head .orn{color:var(--gold);font-size:.72em;}
+.head-line{
+  display:block;width:110px;height:3px;margin:.7rem auto 0;border-radius:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.section-sub{color:var(--muted);font-size:.95rem;margin:.7rem auto 0;max-width:640px;}
+
+/* ============================================================
+   قسم الترحيب والمميزات
+   ============================================================ */
+.welcome-grid{
+  display:grid;grid-template-columns:1fr 1.25fr;gap:2.2rem;align-items:center;
+}
+.welcome-box h3{
+  font-family:'Amiri',serif;font-size:1.8rem;color:var(--green-800);margin:0 0 .6rem;
+}
+.welcome-box p{color:var(--muted);margin:0 0 1rem;}
+.callout{
+  display:inline-block;font-weight:800;color:var(--red-800);
+  border:1.5px dashed var(--gold);border-radius:14px;
+  padding:.5rem 1.4rem;background:rgba(212,175,55,.09);font-size:.95rem;
+}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.feature{
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:1.4rem 1rem;text-align:center;box-shadow:var(--shadow);
+  transition:transform .25s, box-shadow .25s;
+}
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.f-icon{
+  width:56px;height:56px;margin:0 auto .7rem;border-radius:50%;
+  display:grid;place-items:center;font-size:1.5rem;
+  background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(15,85,64,.10));
+  border:1px solid rgba(212,175,55,.45);
+}
+.feature h4{margin:0 0 .3rem;color:var(--green-800);font-size:1rem;}
+.feature p{margin:0;font-size:.83rem;color:var(--muted);line-height:1.7;}
+
+/* ============================================================
+   نموذج التسجيل
+   ============================================================ */
+.form-card{
+  position:relative;overflow:hidden;background:#fff;
+  border:1px solid var(--line);border-radius:26px;
+  padding:2.2rem;box-shadow:var(--shadow);
+}
+.form-card::before{
+  content:"";position:absolute;top:0;right:0;left:0;height:5px;
+  background:linear-gradient(90deg,var(--green-700),var(--gold),var(--red-800));
+}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem 1.4rem;}
+.field{display:flex;flex-direction:column;gap:.35rem;}
+.field-full{grid-column:1/-1;}
+.field label{font-size:.9rem;font-weight:700;color:var(--green-800);}
+.req{color:var(--red-800);}
+.field input,.field select{
+  font-family:inherit;font-size:.95rem;color:var(--ink);
+  padding:.72rem 1rem;border-radius:13px;
+  border:1.5px solid var(--line);background:var(--cream);
+  transition:.2s;width:100%;
+}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230f5540' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 1rem center;padding-left:2.4rem;}
+.field input:focus,.field select:focus{
+  outline:none;border-color:var(--green-600);background:#fff;
+  box-shadow:0 0 0 4px rgba(21,114,83,.10);
+}
+.field input[readonly]{background:var(--cream-2);color:var(--muted);font-weight:700;}
+.field .hint{font-size:.74rem;color:var(--muted);}
+
+/* رفع الصورة */
+.photo-upload{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;}
+.photo-preview{
+  width:112px;height:112px;flex:0 0 auto;border-radius:18px;
+  border:2px dashed var(--gold);background:var(--cream-2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.2rem;color:var(--muted);font-size:.72rem;overflow:hidden;
+  background-size:cover;background-position:center;
+}
+.photo-preview.has-img{border-style:solid;border-color:var(--green-600);}
+.photo-preview.has-img .ph-icon,.photo-preview.has-img .ph-text{display:none;}
+.ph-icon{font-size:1.5rem;}
+.photo-actions{display:flex;flex-direction:column;gap:.4rem;}
+
+.form-actions{
+  display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;
+  margin-top:1.8rem;padding-top:1.6rem;border-top:1px dashed var(--line);
+}
+
+/* ============================================================
+   بطاقة التسجيل
+   ============================================================ */
+.card-wrap{display:flex;flex-direction:column;align-items:center;gap:1.4rem;}
+.reg-card{
+  width:100%;max-width:480px;background:#fff;border-radius:24px;
+  padding:10px;border:1px solid rgba(212,175,55,.55);
+  box-shadow:var(--shadow-lg);
+}
+.card-border{
+  position:relative;border:2px solid var(--gold);border-radius:18px;
+  padding:1.5rem 1.3rem;background:
+    radial-gradient(circle at 100% 0, rgba(212,175,55,.12), transparent 45%),
+    radial-gradient(circle at 0 100%, rgba(15,85,64,.09), transparent 45%),
+    #fffdf8;
+}
+.card-head{
+  display:flex;align-items:center;justify-content:space-between;gap:.7rem;
+  padding-bottom:.9rem;border-bottom:1.5px solid rgba(212,175,55,.5);flex-wrap:wrap;
+}
+.card-logo{
+  display:flex;flex-direction:column;line-height:1.3;text-align:right;
+  border:1px solid rgba(212,175,55,.6);border-radius:12px;
+  padding:.3rem .6rem;background:linear-gradient(180deg,rgba(212,175,55,.14),rgba(212,175,55,.02));
+}
+.card-logo .cl-name{font-size:.72rem;font-weight:800;color:var(--green-800);}
+.card-logo .cl-sub{font-size:.62rem;color:var(--gold-dark);font-weight:700;}
+.card-titles{text-align:left;}
+.card-titles h3{
+  font-family:'Amiri',serif;font-size:1.5rem;margin:0;color:var(--red-800);line-height:1.3;
+}
+.card-titles p{margin:0;font-size:.72rem;color:var(--muted);font-weight:600;}
+
+.card-photo{
+  width:126px;height:126px;margin:1.1rem auto .8rem;border-radius:50%;
+  padding:4px;background:linear-gradient(135deg,var(--gold-2),var(--gold-dark));
+}
+.card-photo img{
+  width:100%;height:100%;object-fit:cover;border-radius:50%;
+  border:3px solid #fffdf8;background:var(--cream-2);
+}
+.card-name{
+  text-align:center;font-family:'Amiri',serif;font-size:1.5rem;font-weight:700;
+  color:#fff;background:linear-gradient(135deg,var(--red-800),var(--red-900));
+  border:1.5px solid var(--gold);border-radius:14px;
+  padding:.5rem 1rem;margin:0 auto .5rem;max-width:92%;
+  word-break:break-word;
+}
+.card-level{
+  text-align:center;font-size:.85rem;font-weight:800;color:var(--green-800);
+  background:rgba(15,85,64,.08);border:1px solid rgba(15,85,64,.2);
+  border-radius:999px;padding:.28rem 1rem;display:block;width:fit-content;margin:0 auto 1rem;
+}
+.card-info{
+  border:1px solid rgba(212,175,55,.5);border-radius:14px;overflow:hidden;
+}
+.info-row{
+  display:flex;justify-content:space-between;align-items:center;gap:.8rem;
+  padding:.55rem .9rem;font-size:.86rem;background:#fffdf8;
+}
+.info-row:nth-child(odd){background:rgba(248,241,224,.65);}
+.info-row span{color:var(--muted);font-weight:700;font-size:.8rem;}
+.info-row strong{color:var(--green-800);font-weight:700;text-align:left;word-break:break-word;}
+.card-foot{
+  margin-top:1rem;text-align:center;font-family:'Amiri',serif;
+  font-size:1rem;color:var(--gold-dark);font-weight:700;
+  border-top:1.5px dashed rgba(212,175,55,.6);padding-top:.8rem;
+}
+.card-actions{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;}
+.card-note{font-size:.78rem;color:var(--muted);text-align:center;max-width:520px;}
+
+/* حالة عدم وجود بطاقة */
+.empty-state{
+  text-align:center;background:#fff;border:2px dashed rgba(212,175,55,.6);
+  border-radius:22px;padding:2.6rem 1.4rem;max-width:560px;margin:0 auto;
+  box-shadow:var(--shadow);
+}
+.empty-state .empty-icon{font-size:2.4rem;display:block;margin-bottom:.5rem;}
+.empty-state p{margin:.2rem 0;color:var(--muted);}
+.empty-state .btn{margin-top:1rem;}
+
+/* ============================================================
+   معرض الصور
+   ============================================================ */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.g-item{
+  margin:0;border-radius:20px;overflow:hidden;background:#fff;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  transition:transform .25s, box-shadow .25s;
+}
+.g-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.g-ph{
+  height:190px;display:grid;place-items:center;font-size:2.2rem;color:rgba(212,175,55,.85);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(212,175,55,.22), transparent 55%),
+    linear-gradient(150deg,var(--green-800),var(--green-900));
+  border-bottom:3px solid var(--gold);
+}
+.g-item figcaption{
+  padding:.8rem 1rem;font-size:.85rem;font-weight:700;color:var(--green-800);text-align:center;
+}
+.gallery-note{
+  margin-top:1.4rem;text-align:center;font-size:.85rem;color:var(--muted);
+}
+
+/* ============================================================
+   لجنة التحكيم + النصائح
+   ============================================================ */
+.notice-box{
+  max-width:680px;margin:0 auto;text-align:center;background:#fff;
+  border:1px solid var(--line);border-radius:24px;padding:2.4rem 1.6rem;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.notice-box::before{
+  content:"";position:absolute;top:0;right:0;left:0;height:5px;
+  background:linear-gradient(90deg,var(--green-700),var(--gold),var(--red-800));
+}
+.notice-box .nb-icon{font-size:2.4rem;display:block;margin-bottom:.6rem;}
+.notice-box h3{font-family:'Amiri',serif;font-size:1.6rem;color:var(--red-800);margin:0 0 .5rem;}
+.notice-box p{color:var(--muted);margin:0;font-size:1rem;}
+
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}
+.tip{
+  display:flex;gap:.9rem;align-items:flex-start;background:#fff;
+  border:1px solid var(--line);border-right:5px solid var(--gold);
+  border-radius:16px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);
+}
+.tip .t-num{
+  flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;font-weight:800;font-size:.9rem;
+  background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#3a2c05;
+}
+.tip p{margin:0;font-size:.9rem;color:var(--ink);line-height:1.8;}
+
+.criteria{
+  margin-top:1.6rem;background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:1.4rem;box-shadow:var(--shadow);
+}
+.criteria h4{
+  margin:0 0 .9rem;text-align:center;font-family:'Amiri',serif;
+  font-size:1.25rem;color:var(--green-800);
+}
+.criteria ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.criteria li{
+  background:var(--cream-2);border-radius:14px;padding:.85rem 1rem;
+  font-size:.85rem;color:var(--green-800);font-weight:600;text-align:center;
+  border:1px dashed rgba(212,175,55,.6);
+}
+
+/* ============================================================
+   تواصل معنا
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:900px;margin:0 auto;}
+.contact-card{
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center;
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:1.6rem 1rem;text-decoration:none;box-shadow:var(--shadow);
+  transition:transform .25s, box-shadow .25s;
+}
+.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.contact-card .c-icon{
+  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  font-size:1.5rem;background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(15,85,64,.10));
+  border:1px solid rgba(212,175,55,.45);
+}
+.contact-card h4{margin:0;font-size:1rem;color:var(--green-800);}
+.contact-card p{margin:0;font-size:.8rem;color:var(--muted);word-break:break-word;}
+.contact-empty{
+  grid-column:1/-1;text-align:center;background:#fff;border:2px dashed rgba(212,175,55,.6);
+  border-radius:20px;padding:2rem 1.2rem;color:var(--muted);font-weight:600;
+}
+
+/* ============================================================
+   الفوتر
+   ============================================================ */
+.site-footer{
+  background:linear-gradient(180deg,var(--green-900),var(--green-950));
+  border-top:3px solid var(--gold);color:#fff;padding:1.6rem 0 1.3rem;
+}
+.footer-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+}
+.footer-title{font-size:.85rem;color:rgba(255,255,255,.8);margin:0;font-weight:600;}
+.footer-copy{
+  display:flex;align-items:center;gap:.6rem;margin:0;
+  font-size:.8rem;color:rgba(255,255,255,.75);font-weight:600;
+}
+.footer-copy .brand{background:rgba(212,175,55,.10);}
+
+/* ============================================================
+   التنبيهات
+   ============================================================ */
+.toast{
+  position:fixed;bottom:22px;right:50%;z-index:300;
+  transform:translate(50%,140%);
+  background:var(--green-800);color:#fff;border:1px solid var(--gold);
+  padding:.85rem 1.5rem;border-radius:16px;font-size:.9rem;font-weight:700;
+  box-shadow:var(--shadow-lg);transition:transform .35s ease;
+  max-width:90vw;text-align:center;
+}
+.toast.show{transform:translate(50%,0);}
+.toast.error{background:var(--red-800);border-color:var(--gold-2);}
+
+/* ============================================================
+   الاستجابة للهاتف
+   ============================================================ */
+@media (max-width:980px){
+  .welcome-grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:repeat(2,1fr);}
+  .criteria ul{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .header-inner{justify-content:center;text-align:center;}
+  .header-tag{display:none;}
+  .header-main h1{font-size:1.6rem;}
+  .form-grid{grid-template-columns:1fr;}
+  .form-card{padding:1.4rem;border-radius:20px;}
+  .features{grid-template-columns:1fr;}
+  .tips-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr;}
+  .footer-inner{justify-content:center;text-align:center;}
+  .section{padding:46px 0;}
+  .hero{padding:48px 0 56px;}
+  .card-head{justify-content:center;text-align:center;}
+  .card-titles{text-align:center;}
+}
+
+/* ============================================================
+   الطباعة — طباعة البطاقة فقط
+   ============================================================ */
+@media print{
+  @page{size:auto;margin:12mm;}
+  html,body{background:#fff !important;}
+  body{background-image:none !important;}
+  .site-header,.site-nav,.site-footer,.no-print,section:not(#card){display:none !important;}
+  #card{padding:0 !important;background:#fff !important;}
+  #card .section-head{display:none !important;}
+  #card .container{width:100%;max-width:100%;}
+  #cardEmpty{display:none !important;}
+  .card-wrap{display:block !important;}
+  .reg-card{box-shadow:none !important;margin:0 auto;page-break-inside:avoid;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     الهيدر
+     ============================================================ -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <!-- اللوجو الصغير -->
+    <div class="brand" title="الجنيرال سيد المصري – أبو نور">
+      <span class="brand-mark">✦</span>
+      <span class="brand-text">
+        <span class="brand-name">الجنيرال سيد المصري</span>
+        <span class="brand-sub">أبو نور</span>
+      </span>
+    </div>
+
+    <div class="header-main">
+      <h1>قرية التلاوة</h1>
+      <p>نجع المهيدات · الموسم الثاني</p>
+    </div>
+
+    <div class="header-tag">
+      <span>📖</span><span>مسابقة القرآن الكريم</span>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============================================================
+     القائمة
+     ============================================================ -->
+<nav class="site-nav" aria-label="القائمة الرئيسية">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-link active">الرئيسية</a>
+    <a href="#register" class="nav-link">تسجيل متسابق</a>
+    <a href="#card" class="nav-link">بطاقة التسجيل</a>
+    <a href="#gallery" class="nav-link">صور وفعاليات</a>
+    <a href="#judges" class="nav-link">لجنة التحكيم</a>
+    <a href="#tips" class="nav-link">نصائح للمتسابقين</a>
+    <a href="#contact" class="nav-link">تواصل معنا</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============================================================
+       1) الرئيسية
+       ============================================================ -->
+  <section id="home" class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">مسابقة القرآن الكريم</span>
+      <h2>📖 قرية التلاوة</h2>
+      <p class="hero-place">نجع المهيدات</p>
+      <div class="hero-season">الموسم الثاني</div>
+      <p class="hero-verse">﴿ أهل القرآن هم أهل الله وخاصته ﴾</p>
+      <div class="hero-actions">
+        <a href="#register" class="btn btn-gold">🪪 تسجيل متسابق</a>
+        <a href="#card" class="btn btn-outline" style="border-color:var(--gold);color:var(--gold-soft);background:rgba(212,175,55,.10);">بطاقة التسجيل</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- الترحيب والمميزات -->
+  <section class="section">
+    <div class="container">
+      <div class="welcome-grid">
+
+        <div class="welcome-box">
+          <h3>مرحبًا بكم في قرية التلاوة</h3>
+          <p>
+            نفتح أبوابنا لأبناء نجع المهيدات ومحيطها للمشاركة في مسابقة قرآنية
+            تجمع بين التلاوة والحفظ والتنافس في كتاب الله.
+          </p>
+          <div class="callout">❖ الدعوة عامة ❖</div>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="f-icon">📖</div>
+            <h4>حفظ القرآن</h4>
+            <p>اختبار مقدار الحفظ المسجّل به المتسابق</p>
+          </div>
+          <div class="feature">
+            <div class="f-icon">🎙️</div>
+            <h4>التلاوة</h4>
+            <p>إظهار جمال التلاوة وصحة القراءة</p>
+          </div>
+          <div class="feature">
+            <div class="f-icon">🏆</div>
+            <h4>التكريم</h4>
+            <p>تكريم المشاركين والفائزين</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2) تسجيل متسابق
+       ============================================================ -->
+  <section id="register" class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="orn">❖</span> تسجيل متسابق جديد <span class="orn">❖</span></h2>
+        <span class="head-line"></span>
+        <p class="section-sub">املأ البيانات التالية بدقة، ثم اضغط على «إنشاء بطاقة التسجيل».</p>
+      </div>
+
+      <form id="regForm" class="form-card" novalidate autocomplete="on">
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="fullName">اسم المتسابق <span class="req">*</span></label>
+            <input id="fullName" name="fullName" type="text" placeholder="اكتب الاسم بالكامل" required />
+          </div>
+
+          <div class="field">
+            <label for="age">السن <span class="req">*</span></label>
+            <input id="age" name="age" type="number" min="5" max="90" inputmode="numeric" placeholder="مثال: 12" required />
+          </div>
+
+          <div class="field">
+            <label for="level">المستوى <span class="req">*</span></label>
+            <select id="level" name="level" required>
+              <option value="">اختر المستوى</option>
+              <option value="أقل من 15 سنة">أقل من 15 سنة</option>
+              <option value="أكبر من 15 سنة">أكبر من 15 سنة</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="governorate">المحافظة</label>
+            <input id="governorate" name="governorate" type="text" value="الأقصر" readonly />
+          </div>
+
+          <div class="field">
+            <label for="center">المركز <span class="req">*</span></label>
+            <select id="center" name="center" required>
+              <option value="">اختر المركز</option>
+              <option value="مركز الطود">مركز الطود</option>
+              <option value="مركز الأقصر">مركز الأقصر</option>
+              <option value="مركز البياضية">مركز البياضية</option>
+              <option value="مركز إسنا">مركز إسنا</option>
+              <option value="مركز أرمنت">مركز أرمنت</option>
+              <option value="مركز الزينية">مركز الزينية</option>
+              <option value="مركز القرنة">مركز القرنة</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="address">القرية / العنوان بالتفصيل</label>
+            <input id="address" name="address" type="text" placeholder="اكتب العنوان بالتفصيل" />
+          </div>
+
+          <div class="field">
+            <label for="teacher">اسم المحفّظ <span class="req">*</span></label>
+            <input id="teacher" name="teacher" type="text" placeholder="اسم الشيخ أو المحفّظ" required />
+          </div>
+
+          <div class="field">
+            <label for="amount">مقدار القرآن المحفوظ <span class="req">*</span></label>
+            <input id="amount" name="amount" type="text" placeholder="مثال: 10 أجزاء" required />
+          </div>
+
+          <div class="field field-full">
+            <label>صورة شخصية حقيقية للمتسابق <span class="req">*</span></label>
+            <div class="photo-upload">
+              <div class="photo-preview" id="photoPreview">
+                <span class="ph-icon">📷</span>
+                <span class="ph-text">لا توجد صورة</span>
+              </div>
+              <div class="photo-actions">
+                <input type="file" id="photo" accept="image/*" hidden />
+                <button type="button" class="btn btn-soft" id="pickPhotoBtn">📁 اختيار صورة من الهاتف</button>
+                <span class="hint">صورة واضحة بخلفية بسيطة — بحد أقصى 5 ميجابايت.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">🪪 إنشاء بطاقة التسجيل</button>
+          <button type="reset" class="btn btn-ghost" id="resetBtn">إعادة تعيين</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3) بطاقة التسجيل
+       ============================================================ -->
+  <section id="card" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="orn">❖</span> بطاقة التسجيل <span class="orn">❖</span></h2>
+        <span class="head-line"></span>
+        <p class="section-sub">بعد إنشاء البطاقة يمكنك طباعتها أو حفظها أو مشاركتها.</p>
+      </div>
+
+      <!-- حالة عدم وجود بطاقة -->
+      <div id="cardEmpty" class="empty-state">
+        <span class="empty-icon">🪪</span>
+        <p><strong>لم يتم إنشاء بطاقة بعد.</strong></p>
+        <p>املأ نموذج التسجيل ثم اضغط على «إنشاء بطاقة التسجيل».</p>
+        <a href="#register" class="btn btn-primary">الذهاب إلى نموذج التسجيل</a>
+      </div>
+
+      <!-- البطاقة -->
+      <div id="cardWrap" class="card-wrap" hidden>
+        <div id="printArea">
+          <article class="reg-card" id="regCard">
+            <div class="card-border">
+
+              <header class="card-head">
+                <div class="card-logo">
+                  <span class="cl-name">الجنيرال سيد المصري</span>
+                  <span class="cl-sub">أبو نور</span>
+                </div>
+                <div class="card-titles">
+                  <h3>قرية التلاوة</h3>
+                  <p>نجع المهيدات · الموسم الثاني</p>
+                </div>
+              </header>
+
+              <div class="card-photo">
+                <img id="cardPhoto" src="" alt="صورة المتسابق" />
+              </div>
+
+              <div class="card-name" id="cardName">—</div>
+              <div class="card-level" id="cardLevel">—</div>
+
+              <div class="card-info">
+                <div class="info-row"><span>السن</span><strong id="cardAge">—</strong></div>
+                <div class="info-row"><span>المحافظة</span><strong>الأقصر</strong></div>
+                <div class="info-row"><span>المركز</span><strong id="cardCenter">—</strong></div>
+                <div class="info-row"><span>العنوان</span><strong id="cardAddress">—</strong></div>
+                <div class="info-row"><span>المحفّظ</span><strong id="cardTeacher">—</strong></div>
+                <div class="info-row"><span>مقدار الحفظ</span><strong id="cardAmount">—</strong></div>
+              </div>
+
+              <footer class="card-foot">بالتوفيق في مسابقة القرآن الكريم</footer>
+            </div>
+          </article>
+        </div>
+
+        <div class="card-actions no-print">
+          <button type="button" class="btn btn-primary" id="printBtn">🖨️ طباعة / حفظ البطاقة</button>
+          <button type="button" class="btn btn-wa" id="waBtn">📲 مشاركة على واتساب</button>
+        </div>
+
+        <p class="card-note no-print">
+          💡 لمشاركة البطاقة كصورة على واتساب: اضغط «طباعة / حفظ البطاقة» ثم اختر «حفظ كـ PDF» أو «حفظ كصورة»،
+          ثم أرسل الملف في المحادثة.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4) صور وفعاليات الموسم السابق
+       ============================================================ -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="orn">❖</span> من فعاليات وفائزي الموسم السابق <span class="orn">❖</span></h2>
+        <span class="head-line"></span>
+        <p class="section-sub">لقطات من أجواء المسابقة وتكريم المشاركين.</p>
+      </div>
+
+      <!--
+        لاستبدال الصور بصور حقيقية:
+        استبدل العنصر <div class="g-ph">🖼️</div>
+        بـ <img src="images/1.jpg" alt="وصف الصورة" style="height:190px;width:100%;object-fit:cover;">
+      -->
+      <div class="gallery">
+        <figure class="g-item">
+          <div class="g-ph">🖼️</div>
+          <figcaption>تكريم الفائزين</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="g-ph">🖼️</div>
+          <figcaption>لحظات التتويج</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="g-ph">🖼️</div>
+          <figcaption>أجواء المسابقة</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="g-ph">🖼️</div>
+          <figcaption>المشاركون في المسابقة</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="g-ph">🖼️</div>
+          <figcaption>تلاوة المتسابقين</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="g-ph">🖼️</div>
+          <figcaption>ختام الموسم السابق</figcaption>
+        </figure>
+      </div>
+
+      <p class="gallery-note">سيتم إضافة المزيد من صور الموسم الثاني بعد انتهاء فعالياته بإذن الله.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5) لجنة التحكيم
+       ============================================================ -->
+  <section id="judges" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="orn">❖</span> لجنة التحكيم <span class="orn">❖</span></h2>
+        <span class="head-line"></span>
+      </div>
+
+      <div class="notice-box">
+        <span class="nb-icon">⚖️</span>
+        <h3>سيتم الإعلان عنها قريبًا</h3>
+        <p>سيتم الإعلان عن أعضاء لجنة التحكيم قبل بدء الاختبارات بإذن الله.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6) نصائح للمتسابقين
+       ============================================================ -->
+  <section id="tips" class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="orn">❖</span> نصائح للمتسابقين <span class="orn">❖</span></h2>
+        <span class="head-line"></span>
+        <p class="section-sub">نصائح تساعدك على تقديم أفضل ما لديك في المسابقة.</p>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip">
+          <span class="t-num">1</span>
+          <p>راجع مقدار الحفظ المسجّل به قبل الاختبار جيدًا.</p>
+        </div>
+        <div class="tip">
+          <span class="t-num">2</span>
+          <p>تدرّب على التلاوة بصوت واضح وهادئ، مع مراعاة أحكام القراءة.</p>
+        </div>
+        <div class="tip">
+          <span class="t-num">3</span>
+          <p>احرص على الحضور في الموعد المحدد دون تأخير.</p>
+        </div>
+        <div class="tip">
+          <span class="t-num">4</span>
+          <p>اجعل هدفك إتقان كتاب الله وليس المنافسة فقط.</p>
+        </div>
+      </div>
+
+      <div class="criteria">
+        <h4>معايير التقييم</h4>
+        <ul>
+          <li>🎙️ <strong>التلاوة:</strong> تقييم جودة التلاوة وأحكام القراءة.</li>
+          <li>📖 <strong>الحفظ:</strong> اختبار مقدار الحفظ ودقة التسميع.</li>
+          <li>⚖️ <strong>التقييم:</strong> تقييم المشاركين وفق قواعد المسابقة.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7) تواصل معنا
+       ============================================================ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="orn">❖</span> تواصل معنا <span class="orn">❖</span></h2>
+        <span class="head-line"></span>
+        <p class="section-sub">لأي استفسار بخصوص المسابقة والتسجيل.</p>
+      </div>
+
+      <div class="contact-grid" id="contactGrid">
+        <!-- يتم إنشاؤها تلقائيًا من إعدادات الموقع -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     الفوتر
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <p class="footer-title">قرية التلاوة – نجع المهيدات | الموسم الثاني</p>
+
+    <p class="footer-copy">
+      <span class="brand brand-sm">
+        <span class="brand-mark">✦</span>
+        <span class="brand-text">
+          <span class="brand-name">الجنيرال سيد المصري</span>
+          <span class="brand-sub">أبو نور</span>
+        </span>
+      </span>
+      <span>جميع الحقوق محفوظة © 2026</span>
+    </p>
+
+  </div>
+</footer>
+
+<!-- التنبيه -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   ⚙️ إعدادات الموقع — عدّل هذه القيم فقط
+   ============================================================ */
+const CONFIG = {
+  // رقم الواتساب بالصيغة الدولية بدون علامة + (مثال: "201012345678")
+  whatsapp: "",
+  // رابط صفحة الفيسبوك
+  facebook: "",
+  // رقم الهاتف للاتصال
+  phone: ""
+};
+
+/* ============================================================
+   أدوات مساعدة
+   ============================================================ */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+let toastTimer = null;
+function toast(message, type = "ok") {
+  const el = $("#toast");
+  el.textContent = message;
+  el.classList.toggle("error", type === "error");
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 3600);
+}
+
+/* ============================================================
+   حالة التسجيل
+   ============================================================ */
+const state = { photo: "", data: null };
+
+/* ============================================================
+   الصورة الشخصية
+   ============================================================ */
+const photoInput = $("#photo");
+const photoPreview = $("#photoPreview");
+
+$("#pickPhotoBtn").addEventListener("click", () => photoInput.click());
+photoPreview.addEventListener("click", () => photoInput.click());
+
+photoInput.addEventListener("change", () => {
+  const file = photoInput.files && photoInput.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    toast("الرجاء اختيار ملف صورة صحيح (JPG / PNG).", "error");
+    photoInput.value = "";
+    return;
+  }
+  if (file.size > 5 * 1024 * 1024) {
+    toast("حجم الصورة كبير، اختر صورة أقل من 5 ميجابايت.", "error");
+    photoInput.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    state.photo = ev.target.result;
+    photoPreview.classList.add("has-img");
+    photoPreview.style.backgroundImage = `url(${ev.target.result})`;
+    toast("تم اختيار الصورة بنجاح ✅");
+  };
+  reader.onerror = () => toast("تعذّر قراءة الصورة، حاول مرة أخرى.", "error");
+  reader.readAsDataURL(file);
+});
+
+/* ============================================================
+   نموذج التسجيل
+   ============================================================ */
+const regForm = $("#regForm");
+
+regForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name    = $("#fullName").value.trim();
+  const age     = $("#age").value.trim();
+  const level   = $("#level").value;
+  const center  = $("#center").value;
+  const address = $("#address").value.trim();
+  const teacher = $("#teacher").value.trim();
+  const amount  = $("#amount").value.trim();
+
+  const fail = (msg, el) => {
+    toast(msg, "error");
+    if (el) { el.focus(); el.scrollIntoView({ behavior: "smooth", block: "center" }); }
+    return false;
+  };
+
+  if (name.length < 3)              return fail("اكتب اسم المتسابق بالكامل.", $("#fullName"));
+  if (!age || Number(age) < 5 || Number(age) > 90)
+                                    return fail("اكتب سنًا صحيحًا للمتسابق.", $("#age"));
+  if (!level)                       return fail("اختر المستوى (أقل من 15 سنة / أكبر من 15 سنة).", $("#level"));
+  if (!center)                      return fail("اختر المركز.", $("#center"));
+  if (!teacher)                     return fail("اكتب اسم المحفّظ.", $("#teacher"));
+  if (!amount)                      return fail("اكتب مقدار القرآن المحفوظ.", $("#amount"));
+  if (!state.photo)                 return fail("الرجاء اختيار صورة شخصية حقيقية للمتسابق.", $("#pickPhotoBtn"));
+
+  state.data = {
+    name,
+    age,
+    level,
+    center,
+    address: address || "—",
+    teacher,
+    amount,
+    photo: state.photo
+  };
+
+  renderCard(state.data);
+
+  $("#cardEmpty").hidden = true;
+  $("#cardWrap").hidden = false;
+
+  toast("تم إنشاء بطاقة التسجيل بنجاح ✅");
+
+  setTimeout(() => {
+    $("#card").scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 220);
+});
+
+/* إعادة التعيين */
+$("#resetBtn").addEventListener("click", () => {
+  state.photo = "";
+  state.data = null;
+  photoPreview.classList.remove("has-img");
+  photoPreview.style.backgroundImage = "";
+  $("#cardWrap").hidden = true;
+  $("#cardEmpty").hidden = false;
+});
+
+/* ============================================================
+   إنشاء البطاقة
+   ============================================================ */
+function renderCard(d) {
+  $("#cardName").textContent    = d.name;
+  $("#cardLevel").textContent   = d.level;
+  $("#cardAge").textContent     = d.age + " سنة";
+  $("#cardCenter").textContent  = d.center;
+  $("#cardAddress").textContent = d.address;
+  $("#cardTeacher").textContent = d.teacher;
+  $("#cardAmount").textContent  = d.amount;
+
+  const img = $("#cardPhoto");
+  img.src = d.photo;
+  img.alt = "صورة المتسابق " + d.name;
+}
+
+/* ============================================================
+   طباعة البطاقة
+   ============================================================ */
+$("#printBtn").addEventListener("click", () => {
+  if (!state.data) { toast("لا توجد بطاقة لطباعتها.", "error"); return; }
+  window.print();
+});
+
+/* ============================================================
+   مشاركة على واتساب
+   ============================================================ */
+$("#waBtn").addEventListener("click", () => {
+  if (!state.data) { toast("لا توجد بطاقة لمشاركتها.", "error"); return; }
+
+  const d = state.data;
+  const lines = [
+    "🪪 *بطاقة تسجيل – قرية التلاوة*",
+    "*نجع المهيدات – الموسم الثاني*",
+    "————————————————",
+    "👤 *الاسم:* " + d.name,
+    "🎂 *السن:* " + d.age + " سنة",
+    "📚 *المستوى:* " + d.level,
+    "📍 *المحافظة:* الأقصر",
+    "🏘️ *المركز:* " + d.center,
+    "🏠 *العنوان:* " + d.address,
+    "🕌 *المحفّظ:* " + d.teacher,
+    "📖 *مقدار الحفظ:* " + d.amount,
+    "————————————————",
+    "بالتوفيق في مسابقة القرآن الكريم 🤲"
+  ];
+
+  if (location.protocol === "http:" || location.protocol === "https:") {
+    lines.push("", "🔗 " + location.href);
+  }
+
+  const url = "https://wa.me/?text=" + encodeURIComponent(lines.join("\n"));
+  window.open(url, "_blank", "noopener");
+});
+
+/* ============================================================
+   قسم التواصل
+   ============================================================ */
+function renderContacts() {
+  const grid = $("#contactGrid");
+  const items = [];
+
+  if (CONFIG.whatsapp) {
+    items.push({
+      icon: "💬", title: "واتساب",
+      text: "+" + CONFIG.whatsapp,
+      href: "https://wa.me/" + CONFIG.whatsapp
+    });
+  }
+  if (CONFIG.facebook) {
+    items.push({
+      icon: "📘", title: "فيسبوك",
+      text: "صفحتنا الرسمية",
+      href: CONFIG.facebook
+    });
+  }
+  if (CONFIG.phone) {
+    items.push({
+      icon: "📞", title: "هاتف",
+      text: CONFIG.phone,
+      href: "tel:" + CONFIG.phone
+    });
+  }
+
+  if (!items.length) {
+    grid.innerHTML =
+      '<div class="contact-empty">سيتم الإعلان عن وسائل التواصل قريبًا بإذن الله.</div>';
+    return;
+  }
+
+  grid.innerHTML = items.map((it) => `
+    <a class="contact-card" href="${it.href}" target="_blank" rel="noopener">
+      <span class="c-icon">${it.icon}</span>
+      <h4>${it.title}</h4>
+      <p>${it.text}</p>
+    </a>
+  `).join("");
+}
+
+/* ============================================================
+   تمييز الرابط النشط في القائمة
+   ============================================================ */
+function initNavHighlight() {
+  const links = $$(".nav-link");
+  const sections = links
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+
+  if (!("IntersectionObserver" in window) || !sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = "#" + entry.target.id;
+        links.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === id));
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+}
+
+/* ============================================================
+   التشغيل
+   ============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  renderContacts();
+  initNavHighlight();
+});
+</script>
+
+</body>
+  </html>
