@@ -94,17 +94,6 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .head-line{display:block;width:110px;height:3px;margin:.7rem auto 0;border-radius:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .section-sub{color:var(--muted);font-size:.95rem;margin:.7rem auto 0;max-width:640px;}
 
-.welcome-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:2.2rem;align-items:center;}
-.welcome-box h3{font-family:'Amiri',serif;font-size:1.8rem;color:var(--green-800);margin:0 0 .6rem;}
-.welcome-box p{color:var(--muted);margin:0 0 1rem;}
-.callout{display:inline-block;font-weight:800;color:var(--red-800);border:1.5px dashed var(--gold);border-radius:14px;padding:.5rem 1.4rem;background:rgba(212,175,55,.09);font-size:.95rem;}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-.feature{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.4rem 1rem;text-align:center;box-shadow:var(--shadow);transition:transform .25s, box-shadow .25s;}
-.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.f-icon{width:56px;height:56px;margin:0 auto .7rem;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(15,85,64,.10));border:1px solid rgba(212,175,55,.45);}
-.feature h4{margin:0 0 .3rem;color:var(--green-800);font-size:1rem;}
-.feature p{margin:0;font-size:.83rem;color:var(--muted);line-height:1.7;}
-
 .form-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:26px;padding:2.2rem;box-shadow:var(--shadow);}
 .form-card::before{content:"";position:absolute;top:0;right:0;left:0;height:5px;background:linear-gradient(90deg,var(--green-700),var(--gold),var(--red-800));}
 .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem 1.4rem;}
@@ -185,8 +174,8 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .toast{position:fixed;bottom:22px;right:50%;z-index:300;transform:translate(50%,140%);background:var(--green-800);color:#fff;border:1px solid var(--gold);padding:.85rem 1.5rem;border-radius:16px;font-size:.9rem;font-weight:700;box-shadow:var(--shadow-lg);transition:transform .35s ease;max-width:90vw;text-align:center;}
 .toast.show{transform:translate(50%,0);} .toast.error{background:var(--red-800);border-color:var(--gold-2);}
 
-@media (max-width:980px){ .welcome-grid{grid-template-columns:1fr;} .gallery{grid-template-columns:repeat(2,1fr);} .criteria ul{grid-template-columns:1fr;} }
-@media (max-width:760px){ .header-inner{justify-content:center;text-align:center;} .header-tag{display:none;} .header-main h1{font-size:1.6rem;} .form-grid{grid-template-columns:1fr;} .form-card{padding:1.4rem;border-radius:20px;} .features{grid-template-columns:1fr;} .tips-grid{grid-template-columns:1fr;} .contact-grid{grid-template-columns:1fr;} .gallery{grid-template-columns:1fr;} .footer-inner{justify-content:center;text-align:center;} .section{padding:46px 0;} .hero{padding:48px 0 56px;} .card-head{justify-content:center;text-align:center;} .card-titles{text-align:center;} }
+@media (max-width:980px){ .gallery{grid-template-columns:repeat(2,1fr);} .criteria ul{grid-template-columns:1fr;} }
+@media (max-width:760px){ .header-inner{justify-content:center;text-align:center;} .header-tag{display:none;} .header-main h1{font-size:1.6rem;} .form-grid{grid-template-columns:1fr;} .form-card{padding:1.4rem;border-radius:20px;} .tips-grid{grid-template-columns:1fr;} .contact-grid{grid-template-columns:1fr;} .gallery{grid-template-columns:1fr;} .footer-inner{justify-content:center;text-align:center;} .section{padding:46px 0;} .hero{padding:48px 0 56px;} .card-head{justify-content:center;text-align:center;} .card-titles{text-align:center;} }
 @media print{ @page{size:auto;margin:12mm;} html,body{background:#fff !important;} body{background-image:none !important;} .site-header,.site-nav,.site-footer,.no-print,section:not(#card){display:none !important;} #card{padding:0 !important;background:#fff !important;} #card .section-head{display:none !important;} #card .container{width:100%;max-width:100%;} #cardEmpty{display:none !important;} .card-wrap{display:block !important;} .reg-card{box-shadow:none !important;margin:0 auto;page-break-inside:avoid;} }
 </style>
 </head>
@@ -598,4 +587,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 </body>
-</html>
+                                 </html>
