@@ -131,8 +131,7 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 @media (max-width:760px){ .header-inner{justify-content:center;text-align:center;} .header-tag{display:none;} .header-main h1{font-size:1.6rem;} .form-grid{grid-template-columns:1fr;} .form-card{padding:1.4rem;border-radius:20px;} .contact-grid{grid-template-columns:1fr;} .gallery{grid-template-columns:1fr;} .footer-inner{justify-content:center;text-align:center;} .section{padding:46px 0;} .hero{padding:48px 0 56px;} .card-head{justify-content:center;text-align:center;} .card-titles{text-align:center;} }
 @media print{ @page{size:auto;margin:12mm;} html,body{background:#fff !important;} body{background-image:none !important;} .site-header,.site-nav,.site-footer,.no-print,section:not(#card){display:none !important;} #card{padding:0 !important;background:#fff !important;} #card .section-head{display:none !important;} #card .container{width:100%;max-width:100%;} #cardEmpty{display:none !important;} .card-wrap{display:block !important;} .reg-card{box-shadow:none !important;margin:0 auto;page-break-inside:avoid;} }
 </style>
-</head>
-<body>
+</head><body>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -310,7 +309,7 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<!-- Firebase SDKs -->
+  <!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <!-- html2canvas -->
@@ -337,7 +336,7 @@ const counterRef = db.ref('stats/contestantCount');
 const contestantsRef = db.ref('contestants');
 
 // ============================================================
-// 2. إعدادات الموقع العامة (رقمك ورقم الفيسبوك)
+// 2. إعدادات الموقع (رقمك ورقم الفيسبوك)
 // ============================================================
 const CONFIG = {
   whatsapp: "201106039442",
@@ -359,7 +358,7 @@ function toast(message, type = "ok") {
 }
 
 // ============================================================
-// 3. توليد كود فريد للمتسابق
+// 3. توليد كود فريد لكل متسابق
 // ============================================================
 function generateContestantCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -466,31 +465,36 @@ $("#printBtn").addEventListener("click", () => {
   window.print();
 });
 
+// ============================================================
+// 6. مشاركة البطاقة كصورة على واتساب (على رقمك)
+// ============================================================
 $("#waBtn").addEventListener("click", async () => {
   if (!state.data) { toast("لا توجد بطاقة لمشاركتها.", "error"); return; }
   const btn = $("#waBtn");
   const originalText = btn.textContent;
   btn.disabled = true;
   btn.textContent = "جاري تحضير الصورة... ⏳";
+
   try {
     const cardElement = document.getElementById("regCard");
     const canvas = await html2canvas(cardElement, { scale: 2, useCORS: true, backgroundColor: "#fffdf8", logging: false });
-    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-    const file = new File([blob], `بطاقة_${state.data.code}.png`, { type: 'image/png' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        files: [file],
-        title: 'بطاقة تسجيل - قرية التلاوة',
-        text: `بطاقة تسجيل المتسابق في مسابقة القرآن الكريم - قرية التلاوة\nكود المتسابق: ${state.data.code}`
-      });
-      toast("تم فتح نافذة المشاركة ✅");
-    } else {
-      const link = document.createElement('a');
-      link.download = `بطاقة_${state.data.code}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-      toast("تم تحميل البطاقة كصورة. ابعتها على واتساب.", "ok");
-    }
+
+    // 1. نزّل الصورة على تليفون المتسابق
+    const link = document.createElement('a');
+    link.download = `بطاقة_${state.data.code}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+
+    // 2. افتح واتساب على رقم التسجيل برسالة جاهزة
+    const waNumber = "201106039442";
+    const waText = encodeURIComponent(
+      `بطاقة تسجيل المتسابق في مسابقة القرآن الكريم - قرية التلاوة\n` +
+      `كود المتسابق: ${state.data.code}\n` +
+      `(أرفق صورة البطاقة من معرض الصور)`
+    );
+    window.open(`https://wa.me/${waNumber}?text=${waText}`, "_blank", "noopener");
+
+    toast("تم تحميل الصورة. ارفقها في محادثة الواتساب.", "ok");
   } catch (error) {
     console.error(error);
     toast("حدث خطأ أثناء تحضير الصورة، جرب الطباعة كـ PDF.", "error");
@@ -500,6 +504,9 @@ $("#waBtn").addEventListener("click", async () => {
   }
 });
 
+// ============================================================
+// 7. عرض وسائل التواصل
+// ============================================================
 function renderContacts() {
   const grid = $("#contactGrid");
   const items = [];
@@ -510,6 +517,9 @@ function renderContacts() {
   grid.innerHTML = items.map(it => `<a class="contact-card" href="${it.href}" target="_blank" rel="noopener"><span class="c-icon">${it.icon}</span><h4>${it.title}</h4><p>${it.text}</p></a>`).join("");
 }
 
+// ============================================================
+// 8. تمييز الرابط النشط
+// ============================================================
 function initNavHighlight() {
   const links = $$(".nav-link");
   const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
