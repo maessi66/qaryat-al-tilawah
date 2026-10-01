@@ -143,9 +143,7 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
 .g-item{margin:0;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .25s, box-shadow .25s;}
 .g-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.g-item img{height:190px;width:100%;object-fit:cover;display:block;border-bottom:3px solid var(--gold);}
-.g-item figcaption{padding:.8rem 1rem;font-size:.85rem;font-weight:700;color:var(--green-800);text-align:center;}
-.gallery-note{margin-top:1.4rem;text-align:center;font-size:.85rem;color:var(--muted);}
+.g-item img{height:190px;width:100%;object-fit:cover;display:block;}
 
 .notice-box{max-width:680px;margin:0 auto;text-align:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:2.4rem 1.6rem;box-shadow:var(--shadow);position:relative;overflow:hidden;}
 .notice-box::before{content:"";position:absolute;top:0;right:0;left:0;height:5px;background:linear-gradient(90deg,var(--green-700),var(--gold),var(--red-800));}
@@ -194,6 +192,7 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
     <a href="#register" class="nav-link">تسجيل متسابق</a>
     <a href="#card" class="nav-link">بطاقة التسجيل</a>
     <a href="#gallery" class="nav-link">صور وفعاليات</a>
+    <a href="#promo" class="nav-link">فيديو البرومو</a>
     <a href="#judges" class="nav-link">لجنة التحكيم</a>
     <a href="#contact" class="nav-link">تواصل معنا</a>
   </div>
@@ -295,38 +294,33 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 
   <section id="gallery" class="section section-alt">
     <div class="container">
-      <div class="section-head"><h2><span class="orn">❖</span> من فعاليات وفائزي الموسم السابق <span class="orn">❖</span></h2><span class="head-line"></span><p class="section-sub">لقطات من أجواء المسابقة وتكريم المشاركين.</p></div>
+      <div class="section-head"><h2><span class="orn">❖</span> صور من فعاليات الموسم الماضي <span class="orn">❖</span></h2><span class="head-line"></span><p class="section-sub">لقطات من أجواء المسابقة وتكريم المشاركين.</p></div>
       <div class="gallery">
-        <figure class="g-item">
-          <img src="1.jpg" alt="تكريم الفائزين">
-          <figcaption>تكريم الفائزين</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="2.jpg" alt="المسرح واللجنة">
-          <figcaption>المسرح واللجنة</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="3.jpg" alt="الفائزون بالكؤوس">
-          <figcaption>الفائزون بالكؤوس</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="4.jpg" alt="جلسة التحكيم">
-          <figcaption>جلسة التحكيم</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="5.jpg" alt="لجنة التحكيم">
-          <figcaption>لجنة التحكيم</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img src="6.jpg" alt="تكريم الفائزين">
-          <figcaption>تكريم الفائزين</figcaption>
-        </figure>
+        <figure class="g-item"><img src="1.jpg" alt="صور فعاليات الموسم الماضي"></figure>
+        <figure class="g-item"><img src="2.jpg" alt="صور فعاليات الموسم الماضي"></figure>
+        <figure class="g-item"><img src="3.jpg" alt="صور فعاليات الموسم الماضي"></figure>
+        <figure class="g-item"><img src="4.jpg" alt="صور فعاليات الموسم الماضي"></figure>
+        <figure class="g-item"><img src="5.jpg" alt="صور فعاليات الموسم الماضي"></figure>
+        <figure class="g-item"><img src="6.jpg" alt="صور فعاليات الموسم الماضي"></figure>
       </div>
-      <p class="gallery-note">سيتم إضافة المزيد من صور الموسم الثاني بعد انتهاء فعالياته بإذن الله.</p>
     </div>
   </section>
 
-  <section id="judges" class="section">
+  <section id="promo" class="section">
+    <div class="container">
+      <div class="section-head"><h2><span class="orn">❖</span> فيديو البرومو <span class="orn">❖</span></h2><span class="head-line"></span><p class="section-sub">شاهد أجواء الموسم السابق قبل ما تبدأ رحلتك في الموسم الثاني.</p></div>
+      <div class="notice-box" style="max-width:600px;">
+        <span class="nb-icon">🎬</span>
+        <h3>كلمة الوزير المحافظ في تكريم الموسم الماضي</h3>
+        <p>شاهد كلمة معالي الوزير المحافظ في حفل تكريم الفائزين بالموسم الماضي من خلال الضغط على الزر التالي.</p>
+        <div style="margin-top:1.2rem;">
+          <a href="https://www.facebook.com/share/v/19VxFiWSg8/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:1rem;padding:.8rem 2rem;">▶️ شاهد الفيديو على فيسبوك</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="judges" class="section section-alt">
     <div class="container">
       <div class="section-head"><h2><span class="orn">❖</span> لجنة التحكيم <span class="orn">❖</span></h2><span class="head-line"></span></div>
       <div class="notice-box"><span class="nb-icon">⚖️</span><h3>سيتم الإعلان عنها قريبًا</h3><p>سيتم الإعلان عن أعضاء لجنة التحكيم قبل بدء الاختبارات بإذن الله.</p></div>
@@ -352,7 +346,6 @@ img{max-width:100%;display:block;} a{color:inherit;} [hidden]{display:none !impo
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -384,7 +377,7 @@ const contestantsRef = db.ref('contestants');
 // ============================================================
 const CONFIG = {
   whatsapp: "",
-  facebook: "",
+  facebook: "https://www.facebook.com/share/1JpWV2qPVo/?mibextid=wwXIfr",
   phone: ""
 };
 
@@ -547,7 +540,7 @@ function renderContacts() {
   const grid = $("#contactGrid");
   const items = [];
   if (CONFIG.whatsapp) items.push({ icon: "💬", title: "واتساب", text: "+" + CONFIG.whatsapp, href: "https://wa.me/" + CONFIG.whatsapp });
-  if (CONFIG.facebook) items.push({ icon: "📘", title: "فيسبوك", text: "صفحتنا الرسمية", href: CONFIG.facebook });
+  if (CONFIG.facebook) items.push({ icon: "📘", title: "فيسبوك", text: "صفحة المسابقة الرسمية", href: CONFIG.facebook });
   if (CONFIG.phone)    items.push({ icon: "📞", title: "هاتف", text: CONFIG.phone, href: "tel:" + CONFIG.phone });
   if (!items.length) { grid.innerHTML = '<div class="contact-empty">سيتم الإعلان عن وسائل التواصل قريبًا بإذن الله.</div>'; return; }
   grid.innerHTML = items.map(it => `<a class="contact-card" href="${it.href}" target="_blank" rel="noopener"><span class="c-icon">${it.icon}</span><h4>${it.title}</h4><p>${it.text}</p></a>`).join("");
@@ -574,4 +567,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 </body>
-                                                                                             </html>
+</html>
