@@ -139,15 +139,10 @@ function renderCard(d){$("#cardCode").textContent=d.code;$("#cardName").textCont
 $("#printBtn").addEventListener("click",()=>{if(!state.data){toast("لا توجد بطاقة لطباعتها.","error");return}window.print()});
 
 $("#waBtn").addEventListener("click",async()=>{
- if(!state.data){toast("لا توجد بطاقة لمشاركتها.","error");return}
- const btn=$("#waBtn"),old=btn.textContent;btn.disabled=true;btn.textContent="جاري تحضير الصورة... ⏳";
- try{
-   const cardElement=$("#regCard");
-   const canvas=await html2canvas(cardElement,{scale:3,useCORS:true,allowTaint:true,backgroundColor:"#fffdf8",logging:false});
-   const imageData=canvas.toDataURL("image/png");
-   const link=document.createElement("a");link.download=`بطاقة_المتسابق_${state.data.code}.png`;link.href=imageData;document.body.appendChild(link);link.click();link.remove();
-   const d=state.data;
-   const waText=encodeURIComponent(
+  if(!state.data){toast("سجّل المتسابق أولًا ثم اضغط الزر.","error");return;}
+
+  const d=state.data;
+  const waText=encodeURIComponent(
 `🕌 قرية التلاوة – نجع المهيدات
 📖 الموسم الثاني
 
@@ -164,15 +159,53 @@ $("#waBtn").addEventListener("click",async()=>{
 🔖 كود المتسابق:
 ${d.code}
 
-📸 تم تجهيز صورة بطاقة التسجيل.
-يرجى إرفاق صورة البطاقة التي تم تحميلها وإرسالها هنا.
+📸 سيتم إرفاق صورة بطاقة التسجيل مع الرسالة.
 
 ✦ الجنيرال سيد المصري
 أبو نور`);
-   window.open(`https://wa.me/${CONFIG.whatsapp}?text=${waText}`,"_blank","noopener");
-   toast("تم تجهيز البطاقة واللوجو وفتح الواتساب ✅ أرفق الصورة وأرسلها.","ok");
- }catch(error){console.error(error);toast("حدث خطأ أثناء تحضير صورة البطاقة.","error")}
- finally{btn.disabled=false;btn.textContent=old}
+
+  const waUrl=`https://wa.me/${CONFIG.whatsapp}?text=${waText}`;
+  const btn=$("#waBtn"),old=btn.textContent;
+  btn.disabled=true;
+  btn.textContent="جاري فتح واتساب وتجهيز البطاقة... ⏳";
+
+  // افتح واتساب أولًا مباشرة من ضغطة المستخدم، لتفادي حظر النافذة المنبثقة في أندرويد.
+  let waTab=null;
+  try{ waTab=window.open(waUrl,"_blank"); }catch(e){}
+  if(!waTab){
+    // بديل إذا منع المتصفح فتح نافذة جديدة.
+    try{ window.location.href=waUrl; }catch(e){}
+  }
+
+  try{
+    const cardElement=$("#regCard");
+    const canvas=await html2canvas(cardElement,{
+      scale:3,
+      useCORS:true,
+      allowTaint:true,
+      backgroundColor:"#fffdf8",
+      logging:false
+    });
+    const imageData=canvas.toDataURL("image/png");
+
+    // حفظ الصورة باسم واضح. في بعض هواتف أندرويد قد تظهر لوحة المشاركة بدل التنزيل؛
+    // هذا سلوك من المتصفح وليس من واتساب. يمكن إغلاقها ثم العودة لواتساب وإرفاق الصورة.
+    const link=document.createElement("a");
+    link.download=`بطاقة_المتسابق_${d.code}.png`;
+    link.href=imageData;
+    link.style.display="none";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    toast("تم فتح واتساب وتجهيز صورة البطاقة ✅ أرفق الصورة ثم اضغط إرسال.","ok");
+  }catch(error){
+    console.error(error);
+    toast("واتساب اتفتح، لكن حدث خطأ أثناء تجهيز صورة البطاقة.","error");
+  }finally{
+    btn.disabled=false;
+    btn.textContent=old;
+  }
 });
 
 function renderContacts(){
