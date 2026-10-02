@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    قرية التلاوة – نجع المهيدات | الموسم الثاني
-   script.js — كامل (كود تسلسلي 001-1000 + فيسبوك فقط)
+   script.js — (كود تسلسلي + منع تكرار برقم الهاتف)
    ═══════════════════════════════════════════ */
 
 /* ═══ 1. Firebase ═══ */
@@ -18,6 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const counterRef = db.ref("stats/contestantCount");
 const contestantsRef = db.ref("contestants");
+const phonesRef = db.ref("phones");
 
 /* ═══ 2. إعدادات الموقع ═══ */
 const CONFIG = {
@@ -148,18 +149,23 @@ if (regForm) {
     if (!amount) return fail("اكتب مقدار الحفظ.", $("#amount"));
     if (!state.photo) return fail("الرجاء اختيار صورة شخصية.", $("#pickPhotoBtn"));
 
+    // ═══ فحص التكرار عبر عقدة phones (متاحة للقراءة للكل) ═══
     toast("⏳ جاري التحقق من رقم الهاتف...");
     try {
-      const snap = await contestantsRef.orderByChild("phone").equalTo(phone).once("value");
-      if (snap.exists()) {
-        toast("⚠️ هذا الرقم مسجل بالفعل! لا يمكن التسجيل مرتين.", "error");
+      const phoneSnap = await phonesRef.child(phone).once("value");
+      if (phoneSnap.exists()) {
+        const existing = phoneSnap.val();
+        toast("⚠️ هذا الرقم مسجل بالفعل! رقم المتسابق: " + (existing.code || "—"), "error");
         $("#phone").focus();
         return;
       }
     } catch (err) {
       console.error("Duplicate check error:", err);
+      toast("تعذر التحقق من الرقم، حاول مرة أخرى.", "error");
+      return;
     }
 
+    // ═══ توليد رقم تسلسلي ═══
     toast("⏳ جاري توليد رقم المتسابق...");
     let contestantNumber;
     try {
@@ -179,10 +185,13 @@ if (regForm) {
     };
     renderCard(state.data);
 
+    // ═══ حفظ في Firebase ═══
     try {
       toast("⏳ جاري حفظ التسجيل...");
       const photoSmall = await compressPhoto(state.photo);
-      await contestantsRef.push({
+
+      // 1. احفظ بيانات المتسابق
+      const pushRef = await contestantsRef.push({
         code: contestantNumber,
         name,
         age: Number(age),
@@ -192,6 +201,15 @@ if (regForm) {
         photo: photoSmall,
         timestamp: new Date().toISOString()
       });
+
+      // 2. احفظ الرقم في عقدة phones (للحماية من التكرار)
+      await phonesRef.child(phone).set({
+        code: contestantNumber,
+        name: name,
+        timestamp: new Date().toISOString(),
+        contestantKey: pushRef.key
+      });
+
       toast("✅ تم حفظ التسجيل — رقمك: " + contestantNumber);
     } catch (error) {
       console.error(error);
