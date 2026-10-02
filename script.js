@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    قرية التلاوة – نجع المهيدات | الموسم الثاني
-   script.js
+   script.js — كامل (كود تسلسلي 001-1000 + فيسبوك فقط)
    ═══════════════════════════════════════════ */
 
 /* ═══ 1. Firebase ═══ */
@@ -41,12 +41,18 @@ function toast(message, type = "ok") {
   toastTimer = setTimeout(() => el.classList.remove("show"), 3600);
 }
 
-/* ═══ 4. توليد كود فريد ═══ */
-function generateContestantCode() {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const block = () => Array.from({length: 4}, () => chars[Math.floor(Math.random() * chars.length)]).join("");
-  const year = new Date().getFullYear().toString().slice(-2);
-  return `QT${year}-${block()}-${block()}`;
+/* ═══ 4. توليد رقم تسلسلي (001-1000) ═══ */
+async function generateContestantNumber() {
+  const result = await counterRef.transaction(current => {
+    const n = (current || 0) + 1;
+    if (n > 1000) return current;
+    return n;
+  });
+  if (!result.committed) {
+    throw new Error("تعذر توليد رقم المتسابق - العدد وصل للحد الأقصى (1000)");
+  }
+  const num = result.snapshot.val();
+  return String(num).padStart(3, "0");
 }
 
 /* ═══ 5. العداد الحقيقي ═══ */
@@ -132,7 +138,6 @@ if (regForm) {
       return false;
     };
 
-    // التحقق من الاسم الرباعي
     const nameWords = name.split(/\s+/).filter(w => w.length > 0);
     if (nameWords.length < 4) return fail("اكتب الاسم رباعي (4 أجزاء على الأقل).", $("#fullName"));
     if (!age || Number(age) < 5 || Number(age) > 90) return fail("اكتب سنًا صحيحًا.", $("#age"));
@@ -143,7 +148,6 @@ if (regForm) {
     if (!amount) return fail("اكتب مقدار الحفظ.", $("#amount"));
     if (!state.photo) return fail("الرجاء اختيار صورة شخصية.", $("#pickPhotoBtn"));
 
-    // فحص التكرار برقم الهاتف
     toast("⏳ جاري التحقق من رقم الهاتف...");
     try {
       const snap = await contestantsRef.orderByChild("phone").equalTo(phone).once("value");
@@ -156,16 +160,31 @@ if (regForm) {
       console.error("Duplicate check error:", err);
     }
 
-    // توليد الكود
-    const code = generateContestantCode();
-    state.data = { code, name, age, level, center, phone, address: address || "—", teacher, amount, photo: state.photo };
+    toast("⏳ جاري توليد رقم المتسابق...");
+    let contestantNumber;
+    try {
+      contestantNumber = await generateContestantNumber();
+    } catch (err) {
+      console.error(err);
+      toast(err.message || "تعذر توليد رقم المتسابق.", "error");
+      return;
+    }
+
+    state.data = {
+      code: contestantNumber,
+      name, age, level, center, phone,
+      address: address || "—",
+      teacher, amount,
+      photo: state.photo
+    };
     renderCard(state.data);
 
-    // حفظ في Firebase
     try {
+      toast("⏳ جاري حفظ التسجيل...");
       const photoSmall = await compressPhoto(state.photo);
       await contestantsRef.push({
-        code, name,
+        code: contestantNumber,
+        name,
         age: Number(age),
         level, center, phone,
         address: address || "—",
@@ -173,8 +192,7 @@ if (regForm) {
         photo: photoSmall,
         timestamp: new Date().toISOString()
       });
-      counterRef.transaction(c => (c || 0) + 1);
-      toast("✅ تم حفظ التسجيل مع الصورة");
+      toast("✅ تم حفظ التسجيل — رقمك: " + contestantNumber);
     } catch (error) {
       console.error(error);
       toast("تعذر الحفظ في قاعدة البيانات.", "error");
@@ -211,7 +229,7 @@ function renderCard(d) {
   $("#cardAmount").textContent = d.amount;
   const img = $("#cardPhoto");
   if (img) { img.src = d.photo; img.alt = "صورة المتسابق " + d.name; }
-  renderQR("قرية التلاوة - " + d.code + " - " + d.name);
+  renderQR("قرية التلاوة - متسابق رقم " + d.code + " - " + d.name);
 }
 
 /* ═══ 12. طباعة ═══ */
@@ -254,7 +272,23 @@ if (waBtn) {
       link.click();
       link.remove();
 
-      const waText = encodeURIComponent(`بطاقة تسجيل متسابق – كود: ${state.data.code}`);
+      const d = state.data;
+      const waText = encodeURIComponent(
+`🕌 قرية التلاوة – نجع المهيدات
+📖 الموسم الثاني
+
+👤 الاسم: ${d.name}
+🎂 السن: ${d.age} سنة
+📚 المستوى: ${d.level}
+📍 المركز: ${d.center}
+📱 الهاتف: ${d.phone}
+👨‍🏫 المحفّظ: ${d.teacher}
+📖 مقدار الحفظ: ${d.amount}
+
+🔖 رقم المتسابق: ${d.code}
+
+📸 تم تحميل صورة البطاقة — يرجى إرفاقها في المحادثة.`
+      );
       setTimeout(() => {
         window.open(`https://wa.me/${CONFIG.whatsapp}?text=${waText}`, "_blank", "noopener");
       }, 700);
@@ -269,14 +303,12 @@ if (waBtn) {
   });
 }
 
-/* ═══ 14. جهات التواصل ═══ */
+/* ═══ 14. جهات التواصل (فيسبوك فقط) ═══ */
 function renderContacts() {
   const grid = $("#contactGrid");
   if (!grid) return;
   const items = [];
   if (CONFIG.facebook) items.push({ icon: "📘", title: "فيسبوك", text: "صفحة المسابقة الرسمية", href: CONFIG.facebook });
-  if (CONFIG.whatsapp) items.push({ icon: "💬", title: "واتساب", text: "+" + CONFIG.whatsapp, href: "https://wa.me/" + CONFIG.whatsapp });
-  if (CONFIG.phone) items.push({ icon: "📞", title: "هاتف", text: CONFIG.phone, href: "tel:" + CONFIG.phone });
   if (!items.length) {
     grid.innerHTML = '<div class="contact-empty">سيتم الإعلان عن وسائل التواصل قريبًا بإذن الله.</div>';
     return;
