@@ -1,0 +1,28 @@
+{
+  "name": "قرية التلاوة – نجع المهيدات",
+  "short_name": "قرية التلاوة",
+  "description": "مسابقة القرآن الكريم - الموسم الثاني على مستوى محافظة الأقصر",
+  "start_url": "/qaryat-al-tilawah/",
+  "scope": "/qaryat-al-tilawah/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdfaf2",
+  "theme_color": "#0b4130",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["education", "lifestyle"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
