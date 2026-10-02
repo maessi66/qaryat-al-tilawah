@@ -6,7 +6,9 @@
 <title>قرية التلاوة – نجع المهيدات | الموسم الثاني | مسابقة</title>
 <meta name="description" content="قرية التلاوة – نجع المهيدات، الموسم الثاني على مستوى محافظة الأقصر. مسابقة القرآن الكريم." />
 <meta name="theme-color" content="#0b4130" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="icon-192.png" />
+<link rel="manifest" href="manifest.json" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,7 +84,7 @@
           <div class="field field-full">
             <label for="fullName">اسم المتسابق (رباعي) <span class="req">*</span></label>
             <input id="fullName" name="fullName" type="text" placeholder="مثال: محمد أحمد محمود عبد الرحمن" required />
-            <span class="hint">اكتب الاسم رباعي (4 أجزاء على الأقل) — للمساعدة في منع التكرار.</span>
+            <span class="hint">اكتب الاسم رباعي (4 أجزاء على الأقل).</span>
           </div>
 
           <div class="field">
@@ -102,7 +104,7 @@
           <div class="field">
             <label for="phone">رقم الهاتف (الواتساب) <span class="req">*</span></label>
             <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="01xxxxxxxxx" required />
-            <span class="hint">11 رقم يبدأ بـ 01 — يُستخدم لمنع التسجيل المتكرر.</span>
+            <span class="hint">11 رقم يبدأ بـ 01 — يمنع التسجيل المتكرر.</span>
           </div>
 
           <div class="field">
@@ -340,5 +342,14 @@
 
 <!-- ═══ كود الموقع ═══ -->
 <script src="script.js"></script>
+
+<!-- ═══ Service Worker للتطبيق ═══ -->
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(()=>{});
+    });
+  }
+</script>
 </body>
   </html>
