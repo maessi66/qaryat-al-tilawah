@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>لوحة المشرفين – قرية التلاوة</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{--green-950:#04211a;--green-900:#073125;--green-800:#0b4130;--green-700:#0f5540;--gold:#d4af37;--gold-2:#e8c766;--gold-soft:#f5e3ab;--gold-dark:#9c7a1c;--red-900:#5a0f1b;--red-800:#7a1526;--cream:#fdfaf2;--cream-2:#f8f1e0;--line:rgba(15,85,64,.15);--ink:#2b2620;--muted:#6f665c;--shadow:0 10px 30px rgba(7,49,37,.10);--shadow-lg:0 18px 45px rgba(7,49,37,.18)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.13' stroke-width='1'%3E%3Cpath d='M45 6 L84 45 L45 84 L6 45 Z'/%3E%3Ccircle cx='45' cy='45' r='7'/%3E%3C/g%3E%3C/svg%3E")}
+.container{width:min(1300px,95%);margin-inline:auto;padding:1rem 0}
+.header{background:linear-gradient(160deg,var(--green-900),var(--green-800),var(--green-950));color:#fff;border-bottom:3px solid var(--gold);padding:1rem 0;margin-bottom:1.5rem}
+.header h1{font-family:'Amiri',serif;font-size:1.7rem;margin:0;background:linear-gradient(180deg,#fff,var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center}
+.header p{margin:.2rem 0 0;text-align:center;font-size:.85rem;color:rgba(255,255,255,.8)}
+.header .user-info{text-align:center;margin-top:.4rem;font-size:.78rem;color:var(--gold-soft)}
+.login-screen{max-width:420px;margin:6vh auto;background:#fff;border:2px solid var(--gold);border-radius:20px;padding:2rem 1.6rem;box-shadow:var(--shadow-lg);text-align:center}
+.login-screen .icon{font-size:3rem;margin-bottom:.5rem}
+.login-screen h2{font-family:'Amiri',serif;font-size:1.6rem;color:var(--red-800);margin:0 0 .5rem}
+.login-screen p{color:var(--muted);font-size:.9rem;margin:0 0 1.2rem}
+.login-screen input{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:1rem;background:var(--cream);outline:none;margin-bottom:.7rem;text-align:center}
+.login-screen input:focus{border-color:var(--green-600);background:#fff;box-shadow:0 0 0 4px rgba(21,114,83,.10)}
+.login-screen button{width:100%;padding:.85rem;border:0;border-radius:12px;background:linear-gradient(135deg,var(--green-700),var(--green-800));color:#fff;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s}
+.login-screen button:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(15,85,64,.3)}
+.login-screen button:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.login-error{color:var(--red-800);font-size:.85rem;margin-top:.5rem;font-weight:700;display:none;padding:.6rem;background:rgba(122,21,38,.08);border-radius:8px}
+.login-error.show{display:block}
+.admin-panel{display:none}.admin-panel.active{display:block}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem}
+.stat-card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:1.1rem;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.stat-card::before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--green-700),var(--gold))}
+.stat-card .num{font-family:'Amiri',serif;font-size:2.2rem;font-weight:800;color:var(--green-800);line-height:1}
+.stat-card .label{font-size:.8rem;color:var(--muted);font-weight:700;margin-top:.4rem}
+.stat-card.gold .num{color:var(--gold-dark)}.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-dark))}
+.stat-card.red .num{color:var(--red-800)}.stat-card.red::before{background:linear-gradient(90deg,var(--red-800),var(--red-900))}
+.controls{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+.controls input,.controls select{padding:.7rem 1rem;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:.9rem;background:#fff;outline:none;min-width:150px}
+.controls input{flex:1 1 240px}
+.controls input:focus,.controls select:focus{border-color:var(--green-600);box-shadow:0 0 0 4px rgba(21,114,83,.10)}
+.controls button,.controls a.btn-export{padding:.7rem 1.1rem;border:0;border-radius:12px;background:linear-gradient(135deg,var(--green-700),var(--green-800));color:#fff;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:.2s;white-space:nowrap}
+.controls button:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(15,85,64,.3)}
+.controls button.gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#3a2c05}
+.controls button.red{background:linear-gradient(135deg,var(--red-800),var(--red-900))}
+.controls button.blue{background:linear-gradient(135deg,#1e40af,#1e3a8a)}
+.controls button.dark{background:linear-gradient(135deg,#334155,#1e293b)}
+.view-toggle{display:inline-flex;background:#fff;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.view-toggle button{padding:.6rem 1rem;border:0;background:transparent;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;color:var(--muted);transition:.2s}
+.view-toggle button.active{background:linear-gradient(135deg,var(--green-700),var(--green-800));color:#fff}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:1.5rem}
+.chart-card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:1.2rem;box-shadow:var(--shadow)}
+.chart-card h3{font-family:'Amiri',serif;font-size:1.1rem;color:var(--green-800);margin:0 0 1rem;text-align:center;border-bottom:1px dashed var(--line);padding-bottom:.5rem}
+.bar-item{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem;font-size:.85rem}
+.bar-item .bar-label{flex:0 0 110px;font-weight:700;color:var(--green-800);font-size:.8rem}
+.bar-item .bar-track{flex:1;height:18px;background:var(--cream-2);border-radius:10px;overflow:hidden;position:relative}
+.bar-item .bar-fill{height:100%;background:linear-gradient(90deg,var(--green-700),var(--gold));border-radius:10px;transition:width .5s;min-width:2px}
+.bar-item .bar-count{flex:0 0 40px;text-align:center;font-weight:800;color:var(--red-800);font-size:.85rem}
+
+/* كروت المتسابقين */
+.cards-grid{display:none;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:1.5rem}
+.cards-grid.active{display:grid}
+.contestant-card{background:#fff;border:2px solid var(--gold-dark);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;position:relative}
+.contestant-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.cc-header{background:linear-gradient(180deg,var(--green-800),var(--green-950));padding:1rem;display:flex;flex-direction:column;align-items:center;position:relative}
+.cc-header::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(212,175,55,.55);border-radius:12px;pointer-events:none}
+.cc-photo{width:100px;height:100px;border-radius:50%;padding:4px;background:conic-gradient(from 220deg,var(--gold-2),var(--gold-dark),var(--gold),var(--gold-2));position:relative;z-index:1}
+.cc-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid #fffdf8;background:var(--cream-2)}
+.cc-photo.no-photo img{display:none}
+.cc-photo.no-photo::after{content:"👤";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#999;background:#f5f5f5;border-radius:50%;border:3px solid #fffdf8}
+.cc-name{font-family:'Amiri',serif;font-size:1.2rem;font-weight:800;color:#fff;text-align:center;margin-top:.6rem;position:relative;z-index:1;text-shadow:0 2px 4px rgba(0,0,0,.35);word-break:break-word}
+.cc-code{display:inline-block;margin-top:.4rem;padding:.25rem .7rem;background:linear-gradient(135deg,rgba(212,175,55,.30),rgba(212,175,55,.10));border:1px dashed var(--gold);border-radius:10px;font-family:'Courier New',monospace;font-size:.82rem;font-weight:800;color:var(--gold-soft);letter-spacing:1.5px;direction:ltr;position:relative;z-index:1}
+.cc-body{padding:.9rem 1rem}
+.cc-row{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.35rem 0;font-size:.83rem;border-bottom:1px dashed rgba(15,85,64,.10)}
+.cc-row:last-child{border-bottom:none}
+.cc-row .cc-label{color:var(--gold-dark);font-weight:700;font-size:.78rem;white-space:nowrap}
+.cc-row .cc-value{color:var(--green-900);font-weight:700;text-align:left;word-break:break-word}
+.cc-actions{display:flex;gap:.4rem;padding:.7rem;background:var(--cream-2);border-top:1px solid var(--line)}
+.cc-actions button{flex:1;padding:.5rem;border:0;border-radius:8px;font-family:inherit;font-size:.78rem;font-weight:700;cursor:pointer;transition:.15s}
+.cc-actions .btn-copy{background:linear-gradient(135deg,var(--green-700),var(--green-800));color:#fff}
+.cc-actions .btn-view{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#3a2c05}
+.cc-actions .btn-del{background:linear-gradient(135deg,var(--red-800),var(--red-900));color:#fff}
+.cc-actions button:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,.15)}
+.cc-date{text-align:center;padding:.4rem;background:var(--green-800);color:var(--gold-soft);font-size:.72rem;font-weight:700}
+
+/* الجدول */
+.table-wrap{display:block;background:#fff;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.table-wrap.hidden{display:none}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:1000px}
+thead{background:linear-gradient(180deg,var(--green-800),var(--green-900));color:#fff}
+thead th{padding:.75rem .6rem;text-align:right;font-weight:700;font-size:.82rem;white-space:nowrap;cursor:pointer;user-select:none;position:relative}
+thead th:hover{background:rgba(212,175,55,.15)}
+tbody tr{border-bottom:1px solid var(--line);transition:background .15s}
+tbody tr:nth-child(odd){background:var(--cream-2)}
+tbody tr:hover{background:rgba(212,175,55,.10)}
+tbody td{padding:.65rem .6rem;vertical-align:middle;font-size:.85rem}
+td.code-cell{font-family:'Courier New',monospace;font-weight:800;color:var(--red-800);font-size:.85rem;direction:ltr;text-align:right;cursor:pointer;white-space:nowrap}
+td.name-cell{font-weight:700;color:var(--green-800)}
+.tbl-photo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);background:var(--cream-2)}
+.tbl-photo.no-photo{display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#999}
+td.actions{text-align:center;white-space:nowrap}
+.btn-mini{padding:.3rem .55rem;border:0;border-radius:8px;font-family:inherit;font-size:.75rem;font-weight:700;cursor:pointer;margin:0 .15rem;transition:.15s}
+.btn-mini.copy{background:rgba(15,85,64,.12);color:var(--green-800)}
+.btn-mini.view{background:rgba(212,175,55,.20);color:var(--gold-dark)}
+.btn-mini.del{background:rgba(122,21,38,.12);color:var(--red-800)}
+.btn-mini:hover{transform:scale(1.05)}
+.empty-msg{text-align:center;padding:3rem 1rem;color:var(--muted)}
+.empty-msg .icon{font-size:3rem;display:block;margin-bottom:.5rem}
+.loading{text-align:center;padding:2rem;color:var(--muted);font-weight:700}
+
+/* نافذة تفاصيل المتسابق */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.show{display:flex}
+.modal-box{background:#fff;border:2px solid var(--gold);border-radius:20px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.4);position:relative}
+.modal-close{position:absolute;top:10px;left:10px;background:var(--red-800);color:#fff;border:0;width:36px;height:36px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:10;font-weight:800}
+.modal-photo{width:150px;height:150px;margin:1.5rem auto 1rem;border-radius:50%;padding:5px;background:conic-gradient(from 220deg,var(--gold-2),var(--gold-dark),var(--gold),var(--gold-2))}
+.modal-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid #fffdf8;background:var(--cream-2)}
+.modal-photo.no-photo{position:relative}
+.modal-photo.no-photo img{display:none}
+.modal-photo.no-photo::after{content:"👤";position:absolute;inset:5px;display:flex;align-items:center;justify-content:center;font-size:4rem;color:#999;background:#f5f5f5;border-radius:50%;border:3px solid #fffdf8}
+.modal-name{text-align:center;font-family:'Amiri',serif;font-size:1.5rem;font-weight:800;color:var(--green-800);margin:0 0 .4rem;padding:0 1rem}
+.modal-code{display:block;width:fit-content;margin:0 auto 1rem;padding:.4rem 1rem;background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(212,175,55,.08));border:1.5px dashed var(--gold);border-radius:12px;font-family:'Courier New',monospace;font-size:1rem;font-weight:800;color:var(--red-800);letter-spacing:1.5px;direction:ltr}
+.modal-details{padding:0 1.5rem 1.5rem}
+.modal-details .data-row{display:flex;justify-content:space-between;align-items:center;gap:.7rem;padding:.65rem .9rem;border-bottom:1px solid rgba(156,122,28,.20);font-size:.88rem}
+.modal-details .data-row:nth-child(odd){background:rgba(248,241,224,.5)}
+.modal-details .data-row:last-child{border-bottom:none}
+.modal-details .row-tag{color:var(--gold-dark);font-weight:700;font-size:.82rem}
+.modal-details .row-value{color:var(--green-900);font-weight:800;text-align:left;word-break:break-word}
+.modal-actions{display:flex;gap:.5rem;padding:0 1.5rem 1.5rem}
+.modal-actions button{flex:1;padding:.7rem;border:0;border-radius:10px;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+.modal-actions .btn-copy{background:linear-gradient(135deg,var(--green-700),var(--green-800));color:#fff}
+.modal-actions .btn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+
+.toast-notif{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120%);background:var(--green-800);color:#fff;padding:.75rem 1.4rem;border-radius:12px;font-size:.88rem;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.25);transition:transform .3s;z-index:9999;border:1px solid var(--gold)}
+.toast-notif.show{transform:translate(-50%,0)}
+.toast-notif.error{background:var(--red-800)}
+
+@media(max-width:600px){
+  .header h1{font-size:1.2rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-card .num{font-size:1.6rem}
+  .cards-grid{grid-template-columns:1fr}
+  table{font-size:.78rem}
+  thead th,tbody td{padding:.45rem .3rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>🔐 لوحة المشرفين</h1>
+    <p>قرية التلاوة – نجع المهيدات | الموسم الثاني</p>
+    <div class="user-info" id="userInfo"></div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- تسجيل الدخول -->
+  <div class="login-screen" id="loginScreen">
+    <div class="icon">🔒</div>
+    <h2>دخول المشرفين</h2>
+    <p>هذه الصفحة خاصة بالمشرفين فقط</p>
+    <input type="email" id="emailInput" placeholder="البريد الإلكتروني" autocomplete="email" dir="ltr" />
+    <input type="password" id="passwordInput" placeholder="كلمة السر" autocomplete="current-password" dir="ltr" />
+    <button id="loginBtn" onclick="login()">دخول</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+
+  <!-- لوحة التحكم -->
+  <div class="admin-panel" id="adminPanel">
+
+    <div class="stats-grid">
+      <div class="stat-card gold"><div class="num" id="totalCount">0</div><div class="label">إجمالي المتسابقين</div></div>
+      <div class="stat-card"><div class="num" id="level1Count">0</div><div class="label">أقل من 15 سنة</div></div>
+      <div class="stat-card"><div class="num" id="level2Count">0</div><div class="label">أكبر من 15 سنة</div></div>
+      <div class="stat-card"><div class="num" id="centersCount">0</div><div class="label">عدد المراكز</div></div>
+      <div class="stat-card red"><div class="num" id="todayCount">0</div><div class="label">تسجيل اليوم</div></div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card"><h3>📊 توزيع المتسابقين على المراكز</h3><div id="centersChart"></div></div>
+      <div class="chart-card"><h3>📈 توزيع المستويات</h3><div id="levelsChart"></div></div>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="🔍 ابحث بالاسم، الكود، المركز، أو المحفّظ..." oninput="applyFilters()" />
+      <select id="centerFilter" onchange="applyFilters()">
+        <option value="">كل المراكز</option>
+        <option value="مركز الطود">مركز الطود</option>
+        <option value="مركز الأقصر">مركز الأقصر</option>
+        <option value="مركز البياضية">مركز البياضية</option>
+        <option value="مركز إسنا">مركز إسنا</option>
+        <option value="مركز أرمنت">مركز أرمنت</option>
+        <option value="مركز الزينية">مركز الزينية</option>
+        <option value="مركز القرنة">مركز القرنة</option>
+      </select>
+      <select id="levelFilter" onchange="applyFilters()">
+        <option value="">كل المستويات</option>
+        <option value="أقل من 15 سنة">أقل من 15 سنة</option>
+        <option value="أكبر من 15 سنة">أكبر من 15 سنة</option>
+      </select>
+      <div class="view-toggle">
+        <button id="viewCards" class="active" onclick="setView('cards')">🎴 كروت</button>
+        <button id="viewTable" onclick="setView('table')">📋 جدول</button>
+      </div>
+      <button class="gold" onclick="exportCSV()">📥 Excel</button>
+      <button class="blue" onclick="window.print()">🖨️ طباعة</button>
+      <button class="red" onclick="logout()">🚪 خروج</button>
+    </div>
+
+    <!-- كروت -->
+    <div class="cards-grid active" id="cardsGrid"></div>
+
+    <!-- جدول -->
+    <div class="table-wrap hidden" id="tableWrap">
+      <div class="table-scroll">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th onclick="sortBy('index')">#</th>
+              <th>الصورة</th>
+              <th onclick="sortBy('code')">الكود</th>
+              <th onclick="sortBy('name')">الاسم</th>
+              <th onclick="sortBy('age')">السن</th>
+              <th onclick="sortBy('level')">المستوى</th>
+              <th onclick="sortBy('center')">المركز</th>
+              <th onclick="sortBy('address')">العنوان</th>
+              <th onclick="sortBy('teacher')">المحفّظ</th>
+              <th onclick="sortBy('amount')">مقدار الحفظ</th>
+              <th onclick="sortBy('timestamp')">وقت التسجيل</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr><td colspan="12" class="loading">جاري التحميل...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Modal تفاصيل -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<div class="toast-notif" id="toastNotif"></div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig={apiKey:"AIzaSyBqslpoSlhCP3196mwHtAFgyjNnQGbAA0Q",authDomain:"qaryat-al-tilawa.firebaseapp.com",databaseURL:"https://qaryat-al-tilawa-default-rtdb.firebaseio.com/",projectId:"qaryat-al-tilawa",storageBucket:"qaryat-al-tilawa.firebasestorage.app",messagingSenderId:"1087398476457",appId:"1:1087398476457:web:e947f3ea497c24536307b8",measurementId:"G-SQELMZXN8N"};
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const db=firebase.database();
+const contestantsRef=db.ref("contestants");
+
+let allData=[],filteredData=[],sortKey="timestamp",sortDir="desc",currentView="cards";
+
+function showToast(msg,type="ok"){
+  const el=document.getElementById("toastNotif");
+  el.textContent=msg;
+  el.classList.toggle("error",type==="error");
+  el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),2800);
+}
+
+function login(){
+  const email=document.getElementById("emailInput").value.trim();
+  const password=document.getElementById("passwordInput").value;
+  const btn=document.getElementById("loginBtn");
+  const err=document.getElementById("loginError");
+  if(!email||!password){err.textContent="❌ من فضلك اكتب الإيميل وكلمة السر";err.classList.add("show");return;}
+  btn.disabled=true;btn.textContent="جاري الدخول...";err.classList.remove("show");
+  auth.signInWithEmailAndPassword(email,password)
+    .then(()=>{btn.disabled=false;btn.textContent="دخول";})
+    .catch(e=>{
+      btn.disabled=false;btn.textContent="دخول";
+      let msg="❌ فشل تسجيل الدخول";
+      if(e.code==="auth/wrong-password"||e.code==="auth/invalid-credential")msg="❌ الإيميل أو كلمة السر غير صحيحة";
+      else if(e.code==="auth/user-not-found")msg="❌ هذا الحساب غير موجود";
+      else if(e.code==="auth/invalid-email")msg="❌ صيغة الإيميل غير صحيحة";
+      else if(e.code==="auth/too-many-requests")msg="❌ محاولات كثيرة خاطئة، حاول لاحقاً";
+      err.textContent=msg;err.classList.add("show");
+    });
+}
+function logout(){auth.signOut().then(()=>location.reload());}
+document.getElementById("passwordInput").addEventListener("keypress",e=>{if(e.key==="Enter")login();});
+document.getElementById("emailInput").addEventListener("keypress",e=>{if(e.key==="Enter")document.getElementById("passwordInput").focus();});
+
+auth.onAuthStateChanged(user=>{
+  const loginScreen=document.getElementById("loginScreen");
+  const adminPanel=document.getElementById("adminPanel");
+  const userInfo=document.getElementById("userInfo");
+  if(user){
+    loginScreen.style.display="none";
+    adminPanel.classList.add("active");
+    userInfo.textContent="👤 "+user.email;
+    loadData();
+  }else{
+    loginScreen.style.display="block";
+    adminPanel.classList.remove("active");
+    userInfo.textContent="";
+  }
+});
+
+function loadData(){
+  contestantsRef.on("value",snapshot=>{
+    const data=snapshot.val()||{};
+    allData=Object.entries(data).map(([key,val])=>({_key:key,...val}));
+    filteredData=[...allData];
+    sortData();
+    updateStats();
+    renderCharts();
+    renderCards();
+    renderTable();
+  },error=>{
+    document.getElementById("cardsGrid").innerHTML='<p style="text-align:center;color:#999;">ليس لديك صلاحية لعرض البيانات</p>';
+    document.getElementById("tableBody").innerHTML='<tr><td colspan="12" class="empty-msg"><span class="icon">⛔</span>ليس لديك صلاحية</td></tr>';
+  });
+}
+
+function updateStats(){
+  document.getElementById("totalCount").textContent=allData.length;
+  document.getElementById("level1Count").textContent=allData.filter(c=>(c.level||"").includes("أقل")).length;
+  document.getElementById("level2Count").textContent=allData.filter(c=>(c.level||"").includes("أكبر")).length;
+  const centers=new Set(allData.map(c=>c.center).filter(Boolean));
+  document.getElementById("centersCount").textContent=centers.size;
+  const today=new Date().toISOString().slice(0,10);
+  document.getElementById("todayCount").textContent=allData.filter(c=>(c.timestamp||"").startsWith(today)).length;
+}
+
+function renderCharts(){
+  const centers={};
+  allData.forEach(c=>{if(c.center){centers[c.center]=(centers[c.center]||0)+1;}});
+  const maxC=Math.max(...Object.values(centers),1);
+  document.getElementById("centersChart").innerHTML=Object.entries(centers).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`
+    <div class="bar-item"><span class="bar-label">${k.replace("مركز ","")}</span><div class="bar-track"><div class="bar-fill" style="width:${(v/maxC*100)}%"></div></div><span class="bar-count">${v}</span></div>
+  `).join("")||'<p style="text-align:center;color:#999;font-size:.85rem;">لا توجد بيانات</p>';
+  const l1=allData.filter(c=>(c.level||"").includes("أقل")).length;
+  const l2=allData.filter(c=>(c.level||"").includes("أكبر")).length;
+  const maxL=Math.max(l1,l2,1);
+  document.getElementById("levelsChart").innerHTML=`
+    <div class="bar-item"><span class="bar-label">أقل من 15</span><div class="bar-track"><div class="bar-fill" style="width:${(l1/maxL*100)}%"></div></div><span class="bar-count">${l1}</span></div>
+    <div class="bar-item"><span class="bar-label">أكبر من 15</span><div class="bar-track"><div class="bar-fill" style="width:${(l2/maxL*100)}%"></div></div><span class="bar-count">${l2}</span></div>
+  `;
+}
+
+function sortBy(key){
+  if(sortKey===key){sortDir=sortDir==="asc"?"desc":"asc";}
+  else{sortKey=key;sortDir="asc";}
+  sortData();renderCards();renderTable();
+}
+function sortData(){
+  filteredData.sort((a,b)=>{
+    let va=a[sortKey],vb=b[sortKey];
+    if(sortKey==="age"){va=Number(va)||0;vb=Number(vb)||0;return sortDir==="asc"?va-vb:vb-va;}
+    va=(va||"").toString().toLowerCase();vb=(vb||"").toString().toLowerCase();
+    return sortDir==="asc"?va.localeCompare(vb):vb.localeCompare(va);
+  });
+}
+
+function setView(v){
+  currentView=v;
+  document.getElementById("viewCards").classList.toggle("active",v==="cards");
+  document.getElementById("viewTable").classList.toggle("active",v==="table");
+  document.getElementById("cardsGrid").classList.toggle("active",v==="cards");
+  document.getElementById("tableWrap").classList.toggle("hidden",v!=="table");
+}
+
+function renderCards(){
+  const grid=document.getElementById("cardsGrid");
+  if(!filteredData.length){
+    grid.innerHTML='<p style="text-align:center;padding:3rem 1rem;color:#999;grid-column:1/-1;">📭 لا توجد بيانات</p>';
+    return;
+  }
+  grid.innerHTML=filteredData.map((c,i)=>`
+    <div class="contestant-card">
+      <div class="cc-header">
+        <div class="cc-photo ${c.photo?'':'no-photo'}">
+          ${c.photo?`<img src="${c.photo}" alt="${c.name||''}" loading="lazy">`:''}
+        </div>
+        <div class="cc-name">${c.name||"—"}</div>
+        <div class="cc-code">${c.code||"—"}</div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-row"><span class="cc-label">🎂 السن</span><span class="cc-value">${c.age||"—"}</span></div>
+        <div class="cc-row"><span class="cc-label">📚 المستوى</span><span class="cc-value">${c.level||"—"}</span></div>
+        <div class="cc-row"><span class="cc-label">📍 المركز</span><span class="cc-value">${c.center||"—"}</span></div>
+        <div class="cc-row"><span class="cc-label">🏠 العنوان</span><span class="cc-value">${c.address||"—"}</span></div>
+        <div class="cc-row"><span class="cc-label">📖 المحفّظ</span><span class="cc-value">${c.teacher||"—"}</span></div>
+        <div class="cc-row"><span class="cc-label">📚 الحفظ</span><span class="cc-value">${c.amount||"—"}</span></div>
+      </div>
+      <div class="cc-date">🕐 ${formatDate(c.timestamp)}</div>
+      <div class="cc-actions">
+        <button class="btn-view" onclick="showModal('${c._key}')">👁️ تفاصيل</button>
+        <button class="btn-copy" onclick="copyCode('${c.code}')">📋 نسخ</button>
+        <button class="btn-del" onclick="deleteContestant('${c._key}','${c.name}')">🗑️</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function renderTable(){
+  const tbody=document.getElementById("tableBody");
+  if(!filteredData.length){
+    tbody.innerHTML='<tr><td colspan="12" class="empty-msg"><span class="icon">📭</span>لا توجد بيانات</td></tr>';
+    return;
+  }
+  tbody.innerHTML=filteredData.map((c,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td>${c.photo?`<img class="tbl-photo" src="${c.photo}" alt="">`:'<span class="tbl-photo no-photo">👤</span>'}</td>
+      <td class="code-cell" onclick="copyCode('${c.code}')" title="اضغط للنسخ">${c.code||"—"}</td>
+      <td class="name-cell">${c.name||"—"}</td>
+      <td>${c.age||"—"}</td>
+      <td>${c.level||"—"}</td>
+      <td>${c.center||"—"}</td>
+      <td>${c.address||"—"}</td>
+      <td>${c.teacher||"—"}</td>
+      <td>${c.amount||"—"}</td>
+      <td>${formatDate(c.timestamp)}</td>
+      <td class="actions">
+        <button class="btn-mini view" onclick="showModal('${c._key}')">👁️</button>
+        <button class="btn-mini copy" onclick="copyCode('${c.code}')">📋</button>
+        <button class="btn-mini del" onclick="deleteContestant('${c._key}','${c.name}')">🗑️</button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+function showModal(key){
+  const c=allData.find(x=>x._key===key);
+  if(!c)return;
+  document.getElementById("modalContent").innerHTML=`
+    <div class="modal-photo ${c.photo?'':'no-photo'}">
+      ${c.photo?`<img src="${c.photo}" alt="${c.name||''}">`:''}
+    </div>
+    <h2 class="modal-name">${c.name||"—"}</h2>
+    <span class="modal-code">${c.code||"—"}</span>
+    <div class="modal-details">
+      <div class="data-row"><span class="row-tag">🎂 السن</span><span class="row-value">${c.age||"—"} سنة</span></div>
+      <div class="data-row"><span class="row-tag">📚 المستوى</span><span class="row-value">${c.level||"—"}</span></div>
+      <div class="data-row"><span class="row-tag">📍 المحافظة</span><span class="row-value">الأقصر</span></div>
+      <div class="data-row"><span class="row-tag">🏛️ المركز</span><span class="row-value">${c.center||"—"}</span></div>
+      <div class="data-row"><span class="row-tag">🏠 العنوان</span><span class="row-value">${c.address||"—"}</span></div>
+      <div class="data-row"><span class="row-tag">📖 المحفّظ</span><span class="row-value">${c.teacher||"—"}</span></div>
+      <div class="data-row"><span class="row-tag">📚 مقدار الحفظ</span><span class="row-value">${c.amount||"—"}</span></div>
+      <div class="data-row"><span class="row-tag">🕐 وقت التسجيل</span><span class="row-value">${formatDate(c.timestamp)}</span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-copy" onclick="copyCode('${c.code}')">📋 نسخ الكود</button>
+      <button class="btn-wa" onclick="contactWhatsApp('${c.code}')">💬 واتساب</button>
+    </div>
+  `;
+  document.getElementById("modalOverlay").classList.add("show");
+}
+function closeModal(e){
+  if(e&&e.target!==document.getElementById("modalOverlay"))return;
+  document.getElementById("modalOverlay").classList.remove("show");
+}
+function contactWhatsApp(code){
+  const txt=encodeURIComponent("مرحباً، بخصوص مسابقة القرآن الكريم - قرية التلاوة\nكود المتسابق: "+code);
+  window.open("https://wa.me/?text="+txt,"_blank");
+}
+
+function formatDate(ts){
+  if(!ts)return "—";
+  try{const d=new Date(ts);return d.toLocaleDateString("ar-EG")+" - "+d.toLocaleTimeString("ar-EG",{hour:"2-digit",minute:"2-digit"});}
+  catch(e){return ts;}
+}
+
+function copyCode(code){
+  if(!code)return;
+  navigator.clipboard.writeText(code).then(()=>showToast("✅ تم نسخ الكود: "+code)).catch(()=>showToast("فشل النسخ","error"));
+}
+function deleteContestant(key,name){
+  if(!confirm("هل أنت متأكد من حذف: "+name+"؟\nلا يمكن التراجع."))return;
+  contestantsRef.child(key).remove().then(()=>showToast("✅ تم حذف: "+name)).catch(()=>showToast("❌ فشل الحذف","error"));
+}
+
+function applyFilters(){
+  const q=document.getElementById("searchInput").value.trim().toLowerCase();
+  const centerF=document.getElementById("centerFilter").value;
+  const levelF=document.getElementById("levelFilter").value;
+  filteredData=allData.filter(c=>{
+    const matchQ=!q||(c.name||"").toLowerCase().includes(q)||(c.code||"").toLowerCase().includes(q)||(c.center||"").toLowerCase().includes(q)||(c.teacher||"").toLowerCase().includes(q);
+    const matchC=!centerF||c.center===centerF;
+    const matchL=!levelF||c.level===levelF;
+    return matchQ&&matchC&&matchL;
+  });
+  sortData();renderCards();renderTable();
+}
+
+function exportCSV(){
+  if(!filteredData.length){showToast("لا توجد بيانات","error");return;}
+  const headers=["#","الكود","الاسم","السن","المستوى","المركز","العنوان","المحفّظ","مقدار الحفظ","وقت التسجيل"];
+  const rows=filteredData.map((c,i)=>[i+1,c.code||"",c.name||"",c.age||"",c.level||"",c.center||"",c.address||"",c.teacher||"",c.amount||"",formatDate(c.timestamp)]);
+  const csv="\uFEFF"+[headers,...rows].map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(",")).join("\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});
+  const link=document.createElement("a");
+  link.href=URL.createObjectURL(blob);
+  link.download=`متسابقون_قرية_التلاوة_${new Date().toISOString().slice(0,10)}.csv`;
+  link.click();
+  showToast("📥 تم تصدير "+filteredData.length+" متسابق");
+}
+</script>
+</body>
+  </html>
